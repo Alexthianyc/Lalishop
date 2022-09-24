@@ -1,0 +1,89 @@
+@import 'vars';
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 0 10px;
+}
+.menu{
+    display: none;
+}
+.menu-logo{
+    width: 35px;
+    height: 35px;
+    padding: 5px 5px 0px 5px;
+    margin-right: 10px;
+}        
+.navbar-left ul{
+    margin-left: 15px;
+}
+.navbar-left ul,
+.navbar-right ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+.navbar-left{
+    display: flex;
+}
+.navbar-right{
+    height: auto;
+    display: flex;
+    cursor: pointer;
+}
+.navbar-right ul li:nth-child(1){
+    margin-right: 25px;
+}
+.navbar-left ul li a,
+.navbar-right ul li a{
+    text-decoration: none;
+    color: var(--very-light-pink);
+    border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+}
+.navbar-left ul li a:hover,
+.navbar-right ul li a:hover{
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+}
+.navbar-email{
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    cursor: pointer;
+}
+.navbar-shopping-cart{
+    position: relative;
+}
+.navbar-shopping-cart img:hover{
+    filter: opacity(0.4) drop-shadow(0 0 0 var(--hospital-green)); 
+}
+.navbar-shopping-cart div{
+    width: 15px;
+    height: 15px;
+    background-color: var(--hospital-green);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 640px) {
+    .menu{
+        display: block;
+    }
+    .navbar-left ul{
+        display: none;
+    }
+    .navbar-email{
+        display: none;
+    }
+}

@@ -1,0 +1,36 @@
+@import 'vars';
+
+.desktop-menu {
+width: 100px;
+height: auto;
+border: 1px solid var(--very-light-pink);
+border-radius: 6px;
+padding: 20px 20px 0 20px;
+}
+.desktop-menu ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.desktop-menu ul li {
+text-align: end;
+}
+.desktop-menu ul li:last-child {
+padding-top: 20px;
+border-top: 2px solid var(--very-light-pink);
+}
+.desktop-menu ul li:last-child a{
+color: var(--hospital-green);
+font-size: var(--sm);
+}
+.desktop-menu ul li a{
+color: var(--black);
+text-decoration: none;
+display: inline-block;
+margin-bottom: 20px;
+}
+.desktop-menu ul li:nth-child(1),
+.desktop-menu ul li:nth-child(2){
+font-weight: bold;
+font-size: 1rem;
+}

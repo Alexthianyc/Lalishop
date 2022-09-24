@@ -1,0 +1,81 @@
+@import 'vars';
+
+.login{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.form-container {
+    display: grid;
+    width: 360px;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+}
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+.form a {
+    color: var(--hospital-green);
+    font-size: var(--sm);
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+.secondary-button {
+    width: 360px;
+    height: 50px;
+    background-color: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    padding: 10px;
+}
+.logo{
+    width: 130px;
+    justify-self: center;
+    display: none;
+}
+.signup-button{
+    width: 360px;
+    position: fixed;
+    bottom: 0;
+    margin: 10px;
+}
+.label {
+    width: 100%;
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.input {
+    background-color: var(--text-input-field);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: var(--md);
+    padding: 6px;
+    margin-bottom: 12px;
+}
+@media (max-width: 640px) {
+.logo {
+    display: block;
+}
+}
