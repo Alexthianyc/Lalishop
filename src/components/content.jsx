@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/content.scss';
 
+import bt_add_to_cart from '@icons/bt_add_to_cart.svg';
+
 const Home = () => {
     return ( 
         <section className="main-container">
@@ -13,7 +15,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -25,7 +27,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -37,7 +39,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -49,7 +51,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -61,7 +63,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -73,7 +75,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -85,7 +87,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -97,7 +99,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>
@@ -109,7 +111,7 @@ const Home = () => {
                         <p>bike</p>
                     </div>
                     <figure>
-                        <img src="../image/bt_add_to_cart.svg" alt="carrito"/>
+                        <img src={bt_add_to_cart} alt="carrito"/>
                     </figure>
                 </div>
             </div>

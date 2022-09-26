@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/my_orders.scss';
 
+import flechita from '@icons/flechita.svg';
+
 const My_ordes = () => {
     return ( 
         <div className="my-order">
@@ -16,7 +18,7 @@ const My_ordes = () => {
                             $270,00
                         </p>
                         <figure>
-                            <img src="../image/flechita.svg" alt="flecha"/>
+                            <img src={flechita} alt="flecha"/>
                         </figure>
                     </div>
                     <div className="orders">
@@ -28,7 +30,7 @@ const My_ordes = () => {
                             $270,00
                         </p>
                         <figure>
-                            <img src="../image/flechita.svg" alt="flecha"/>
+                            <img src={flechita} alt="flecha"/>
                         </figure>
                     </div>
                     <div className="orders">
@@ -40,7 +42,7 @@ const My_ordes = () => {
                             $270,00
                         </p>
                         <figure>
-                            <img src="../image/flechita.svg" alt="flecha"/>
+                            <img src={flechita} alt="flecha"/>
                         </figure>
                     </div>
                     <div className="orders">
@@ -52,7 +54,7 @@ const My_ordes = () => {
                             $270,00
                         </p>
                         <figure>
-                            <img src="../image/flechita.svg" alt="flecha"/>
+                            <img src={flechita} alt="flecha"/>
                         </figure>
                     </div>
                 </div>

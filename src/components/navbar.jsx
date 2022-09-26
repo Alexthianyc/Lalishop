@@ -1,16 +1,18 @@
 import React from 'react';
 import '../styles/navbar.scss';
 
-const menu = '@icons/icon_menu.svg';
+import menu from '@icons/icon_menu.svg';
+import icon_shopping_cart from '@icons/icon_shopping_cart.svg';
+import favicon_lalishop from '@logos/favicon_lalishop.png';
 
 const Navbar = () => {
     return (
       <nav>
         <img src={menu} alt="menu" className="menu" />
         <div className="navbar-left">
-          <a href="./home.html">
+          <a href="/">
             <img
-              src="../image/favicon_lalishop.png"
+              src={favicon_lalishop}
               alt="logo"
               className="menu-logo"
             />
@@ -31,7 +33,7 @@ const Navbar = () => {
           <ul>
             <li className="navbar-email">correo@ues.edu.com</li>
             <li className="navbar-shopping-cart">
-              <img src="../image/icon_shopping_cart.svg" alt="shopping cart" />
+              <img src={icon_shopping_cart} alt="shopping cart" />
               <div>2</div>
             </li>
           </ul>

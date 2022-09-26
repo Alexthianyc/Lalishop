@@ -8,7 +8,7 @@ const Categories = () => {
         <div className="mobile-menu">
         <ul>
             <li>
-                <a href="./categories.html">CATEGORIAS</a>
+                <a href="#">CATEGORIAS</a>
             </li>
             <li>
                 <a href="/">Ropa</a>
@@ -19,10 +19,10 @@ const Categories = () => {
         </ul>
         <ul>
             <li>
-                <a href="./my_orders.html">Mis ordenes</a>
+                <a href="/orders">Mis ordenes</a>
               </li>
               <li>
-                <a href="./my_account.html">Mi cuenta</a>
+                <a href="/account">Mi cuenta</a>
               </li>
         </ul>
         <ul>

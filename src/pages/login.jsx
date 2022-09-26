@@ -1,11 +1,13 @@
 import React from 'react';
 import '../styles/login.scss';
 
+import logo_lalishop from '@logos/logo_lalishop.png';
+
 const Login = () => {
     return ( 
         <div className="login">
             <div className="form-container">
-                <img src="../image/logo_lalishop.png" alt="logo" className="logo" />
+                <img src={logo_lalishop} alt="logo" className="logo" />
                 <form action="#" className="form">
                     <label for="email" className="label">Direccion de correo</label>
                     <input type="email" id="email" className="input input-email" />

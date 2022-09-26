@@ -1,11 +1,13 @@
 import React from 'react';
 import '../styles/new_password.scss';
 
+import logo_lalishop from '@logos/logo_lalishop.png';
+
 const New_password = () => {
     return ( 
         <div className="login">
             <div className="form-container">
-                <img src="../image/logo_lalishop.png" alt="logo" className="logo"/>
+                <img src={logo_lalishop} alt="logo" className="logo"/>
                 <h1 className="title">Crear una nueva contraseña</h1>
                 <p className="subtitle">Ingrese una nueva contraseña para su cuenta</p>
                 <form action="/" className="form-login">
