@@ -1,8 +1,8 @@
 [build]
-  base = "/opt/build/repo"
+  base = "/build/repo"
   command = "npm run build"
   commandOrigin = "config"
-  publish = "/opt/build/repo/build"
+  publish = "/build/repo/build"
   publishOrigin = "config"
 
 [[redirects]]
