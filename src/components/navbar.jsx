@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/navbar.scss';
 
-import menu from '@icons/icon_menu.svg';
-import icon_shopping_cart from '@icons/icon_shopping_cart.svg';
-import favicon_lalishop from '@logos/favicon_lalishop.png';
+import menu from 'icons/icon_menu.svg';
+import icon_shopping_cart from 'icons/icon_shopping_cart.svg';
+import favicon_lalishop from 'logos/favicon_lalishop.png';
 
 const Navbar = () => {
     return (

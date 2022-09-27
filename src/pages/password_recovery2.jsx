@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/password_recovery2.scss';
 
-import email from '@icons/email.svg';
-import logo_lalishop from '@logos/logo_lalishop.png';
+import email from 'icons/email.svg';
+import logo_lalishop from 'logos/logo_lalishop.png';
 
 const Password_recovery2 = () => {
     return ( 

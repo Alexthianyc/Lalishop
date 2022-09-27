@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/shopping_cart.scss';
 
-import flechita from '@icons/flechita.svg';
-import icon_close from '@icons/icon_close.svg';
+import flechita from 'icons/flechita.svg';
+import icon_close from 'icons/icon_close.svg';
 
 const Shopping_cart = () => {
     return ( 

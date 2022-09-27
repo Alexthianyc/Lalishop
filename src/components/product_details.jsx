@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/product_details.scss';
 
-import bt_add_to_cart from '@icons/bt_add_to_cart.svg';
-import icon_close from '@icons/icon_close.png';
+import bt_add_to_cart from 'icons/bt_add_to_cart.svg';
+import icon_close from 'icons/icon_close.png';
 
 const Product_details = () => {
     return ( 

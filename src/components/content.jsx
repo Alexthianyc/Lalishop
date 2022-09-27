@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/content.scss';
 
-import bt_add_to_cart from '@icons/bt_add_to_cart.svg';
+import bt_add_to_cart from 'icons/bt_add_to_cart.svg';
 
 const Home = () => {
     return ( 

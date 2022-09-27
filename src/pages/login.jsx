@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/login.scss';
 
-import logo_lalishop from '@logos/logo_lalishop.png';
+import logo_lalishop from 'logos/logo_lalishop.png';
 
 const Login = () => {
     return ( 

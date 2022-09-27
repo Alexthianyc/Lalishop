@@ -1,9 +1,6 @@
 // imr
 import React from 'react';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
-const BrowserRouter = require("react-router-dom").BrowserRouter;
-const Route = require("react-router-dom").Route;
-const Link = require("react-router-dom").Link;
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Layout from '../containers/layout';
 import Home from '../pages/Home';
