@@ -1,13 +1,11 @@
 // imr
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import Layout from '../containers/layout';
 import Home from '../pages/home';
 import Login from '../pages/login';
-
-import PasswordRecovery from '../pages/new_password';
 import NewPassword from '../pages/new_password';
-
 import SendEmail from '../pages/password_recovery2';
 import MyAccount from '../pages/my_Account';
 import CreateAccount from '../pages/create_account';
