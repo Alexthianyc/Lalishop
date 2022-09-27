@@ -2,16 +2,16 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Layout from '../containers/layout';
-import Home from '../pages/home';
-import Login from '../pages/login';
-import NewPassword from '../pages/new_password';
-import SendEmail from '../pages/password_recovery2';
-import MyAccount from '../pages/my_Account';
-import CreateAccount from '../pages/create_account';
-import Checkout from '../pages/my_order';
-import Orders from '../pages/my_orders';
-import NotFound from '../pages/NotFound';
+import Layout from './src/containers/layout';
+import Home from './src/pages/home';
+import Login from './src/pages/login';
+import NewPassword from './src/pages/new_password';
+import SendEmail from './src/pages/password_recovery2';
+import MyAccount from './src/pages/my_Account';
+import CreateAccount from './src/pages/create_account';
+import Checkout from './src/pages/my_order';
+import Orders from './src/pages/my_orders';
+import NotFound from './src/pages/NotFound';
 import "../styles/global.css";
 
 // sfc
