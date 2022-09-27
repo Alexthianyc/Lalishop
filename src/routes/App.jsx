@@ -3,11 +3,11 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Layout from '../containers/layout';
-import Home from '../pages/home';
+import Home from '../pages/Home';
 import Login from '../pages/login';
 import NewPassword from '../pages/new_password';
 import SendEmail from '../pages/password_recovery2';
-import MyAccount from '../pages/my_Account';
+import MyAccount from '../pages/my_account';
 import CreateAccount from '../pages/create_account';
 import Checkout from '../pages/my_order';
 import Orders from '../pages/my_orders';
