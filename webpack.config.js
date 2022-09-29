@@ -6,19 +6,18 @@ module.exports = {
     entry: './src/index.js', // punto de entrada
     output: { // lugar al que saldrán todos los archivos
         path: path.resolve(__dirname, 'dist'), //en nuestro path, crea la carpeta dist
-        filename: 'bundle.js', // nombre del archivo js resultante
-        publicPath: '/' //ruta de los archivos
+        filename: 'webpack.bundle.js',
     },
-    mode: 'development', //modo de desarrollo
+    mode: 'production', //modo de desarrollo
     resolve: { // extensión de archivos a tomar en cuenta
-        extensions: ['.js', '.jsx'],
         alias: {
 			components : path.resolve(__dirname, './src/components'),
 			containers : path.resolve(__dirname, './src/containers'),
 			styles : path.resolve(__dirname, './src/styles'),
 			icons : path.resolve(__dirname, './src/assets/icons'),
 			logos : path.resolve(__dirname, './src/assets/logos')
-		}
+		},
+        extensions: ['', '.js', '.json', '.jsx']
     },
     module: { // loaders para cada tipo de archivo
         rules: [ // reglas para usar
@@ -48,7 +47,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jp(e*)g|svg|gif)$/,
-                type: 'asset',
+                type: 'asset'
             }
         ]
     },
