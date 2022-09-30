@@ -12,7 +12,6 @@ module.exports = {
     },
     mode: 'production', //modo de desarrollo
     resolve: { // extensión de archivos a tomar en cuenta
-        symlinks: false,
         alias: {
 			components : path.resolve(__dirname, './src/components/'),
 			containers : path.resolve(__dirname, './src/containers/'),
@@ -50,16 +49,19 @@ module.exports = {
                 ],
             },
             {
-                test: /\.svg$/i,
-                type: 'asset/resource',
+                test: /\.(svg|png)$/i,
+                loader: 'url-loader',
+                options: {
+                    name: '[name].[ext]?[hash]',
+                }
+                // type: 'asset/resource',
             },
             {
-                test: /\.(ico|jpg|jpeg|png|gif)(\?.*)?$/,
+                test: /\.(ico|jpg|jpeg|gif)(\?.*)?$/,
                 use: {
                 loader: 'file-loader',
                 options: {
-                    name: '[path][name].[ext]',
-                    context: 'src',
+                    name: '[path][name].[ext]'
                     },
                 },
             },
