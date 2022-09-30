@@ -17,8 +17,8 @@ module.exports = {
 			components : path.resolve(__dirname, './src/components/'),
 			containers : path.resolve(__dirname, './src/containers/'),
 			styles : path.resolve(__dirname, './src/styles/'),
-			icons : path.resolve(__dirname, './src/assets/icons'),
-			logos : path.resolve(__dirname, './src/assets/logos')
+			icons : path.resolve(__dirname, './src/assets/icons/'),
+			logos : path.resolve(__dirname, './src/assets/logos/')
 		}
     },
     performance: { hints: false }, //desactiva el warning de tamaño de bundle
@@ -49,7 +49,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(ico|jpg|jpeg|png|gif|svg)(\?.*)?$/,
+                test: /\.svg$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(ico|jpg|jpeg|png|gif)(\?.*)?$/,
                 use: {
                 loader: 'file-loader',
                 options: {
