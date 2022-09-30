@@ -12,14 +12,15 @@ module.exports = {
     },
     mode: 'production', //modo de desarrollo
     resolve: { // extensión de archivos a tomar en cuenta
-        extensions: ['.js', '.jsx'],
+        symlinks: false,
         alias: {
 			components : path.resolve(__dirname, './src/components/'),
 			containers : path.resolve(__dirname, './src/containers/'),
 			styles : path.resolve(__dirname, './src/styles/'),
 			icons : path.resolve(__dirname, './src/assets/icons/'),
 			logos : path.resolve(__dirname, './src/assets/logos/')
-		}
+		},
+        extensions: ['.js', '.jsx'],
     },
     performance: { hints: false }, //desactiva el warning de tamaño de bundle
     module: { // loaders para cada tipo de archivo

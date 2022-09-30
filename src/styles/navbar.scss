@@ -4,15 +4,16 @@ nav{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px 0 10px;
+    // padding: 0 20px 0 10px;
 }
 .menu{
     display: none;
+    margin-left: 10px;
 }
 .menu-logo{
     width: 35px;
     height: 35px;
-    padding: 5px 5px 0px 5px;
+    padding: 5px 5px 0px 10px;
     margin-right: 10px;
 }        
 .navbar-left ul{
@@ -36,7 +37,7 @@ nav{
     cursor: pointer;
 }
 .navbar-right ul li:nth-child(1){
-    margin-right: 25px;
+    margin-right: 20px;
 }
 .navbar-left ul li a,
 .navbar-right ul li a{
@@ -58,6 +59,7 @@ nav{
 }
 .navbar-shopping-cart{
     position: relative;
+    margin-right: 10px;
 }
 .navbar-shopping-cart img:hover{
     filter: opacity(0.4) drop-shadow(0 0 0 var(--hospital-green)); 
@@ -71,7 +73,7 @@ nav{
     font-weight: bold;
     position: absolute;
     top: -5px;
-    right: -5px;
+    right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
