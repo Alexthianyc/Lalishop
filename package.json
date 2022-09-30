@@ -37,6 +37,7 @@
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
     "svg-inline-loader": "^0.8.2",
+    "svg-loader": "^0.0.2",
     "svg-react-loader": "^0.4.6"
   }
 }

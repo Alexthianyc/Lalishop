@@ -49,17 +49,15 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jp(e*)g|gif)$/i,
-                use: [
-                    {
-                      loader: 'file-loader',
+                test: /\.(ico|jpg|jpeg|png|gif|svg)(\?.*)?$/,
+                use: {
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                    context: 'src',
                     },
-                  ],
+                },
             },
-            {
-                test: /\.(svg)$/, 
-                type: "asset/resource"
-            }
         ]
     },
     plugins: [ // plugins 
