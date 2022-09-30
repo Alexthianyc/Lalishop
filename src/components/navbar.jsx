@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/navbar.scss';
 
-const menu = require('icons/icon_menu.svg');
-const icon_shopping_cart = require('icons/icon_shopping_cart.svg');
+const menu = require('../assets/icons/icon_menu.svg');
+const icon_shopping_cart = require('../assets/icons/icon_shopping_cart.svg');
 import lalishop from 'logos/favicon.png';
 
 const Navbar = () => {
