@@ -3,7 +3,7 @@ import '../styles/navbar.scss';
 
 const menu = require('icons/icon_menu.svg');
 const icon_shopping_cart = require('icons/icon_shopping_cart.svg');
-const favicon_lalishop = require('logos/favicon_lalishop.png');
+import lalishop from 'logos/favicon.png';
 
 const Navbar = () => {
     return (
@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="navbar-left">
           <a href="/">
             <img
-              src={favicon_lalishop}
+              src={lalishop}
               alt="logo"
               className="menu-logo"
             />

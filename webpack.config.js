@@ -1,6 +1,7 @@
 const path = require('path'); //path del proyecto principal
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //traemos el plugin de html
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //traemos el plugin de css
+const loader = require('sass-loader');
 
 module.exports = {
     entry: './src/index.js', // punto de entrada
@@ -13,11 +14,11 @@ module.exports = {
     resolve: { // extensión de archivos a tomar en cuenta
         extensions: ['.js', '.jsx'],
         alias: {
-			components : path.resolve(__dirname, './src/components'),
-			containers : path.resolve(__dirname, './src/containers'),
-			styles : path.resolve(__dirname, './src/styles'),
-			icons : path.resolve(__dirname, './src/assets/icons'),
-			logos : path.resolve(__dirname, './src/assets/logos')
+			components : path.resolve(__dirname, './src/components/'),
+			containers : path.resolve(__dirname, './src/containers/'),
+			styles : path.resolve(__dirname, './src/styles/'),
+			icons : path.resolve(__dirname, './src/assets/icons/'),
+			logos : path.resolve(__dirname, './src/assets/logos/')
 		}
     },
     performance: { hints: false }, //desactiva el warning de tamaño de bundle
@@ -48,8 +49,16 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jp(e*)g|svg|gif)$/,
-                type: 'asset',
+                test: /\.(png|jp(e*)g|gif)$/i,
+                use: [
+                    {
+                      loader: 'file-loader',
+                    },
+                  ],
+            },
+            {
+                test: /\.(svg)$/, 
+                type: "asset/resource"
             }
         ]
     },
