@@ -49,15 +49,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(svg|png)$/i,
-                loader: 'url-loader',
-                options: {
-                    name: '[name].[ext]?[hash]',
-                }
-                // type: 'asset/resource',
+                test: /\.(svg|png|jpg|jpeg|gif)$/,
+                type: 'asset/resource',
             },
             {
-                test: /\.(ico|jpg|jpeg|gif)(\?.*)?$/,
+                test: /\.(ico)(\?.*)?$/,
                 use: {
                 loader: 'file-loader',
                 options: {
@@ -82,6 +78,6 @@ module.exports = {
             directory: path.join(__dirname, 'public'),
             },
           compress: true,
-          port: 3005,
+          port: 3000,
     }
 }

@@ -1,11 +1,15 @@
 @import 'vars';
 
 .desktop-menu {
-width: 100px;
+width: auto;
 height: auto;
 border: 1px solid var(--very-light-pink);
 border-radius: 6px;
 padding: 20px 20px 0 20px;
+position: absolute;
+top: 50px;
+right: 40px;
+background-color: white;
 }
 .desktop-menu ul {
 list-style: none;
@@ -21,12 +25,12 @@ border-top: 2px solid var(--very-light-pink);
 }
 .desktop-menu ul li:last-child a{
 color: var(--hospital-green);
-font-size: var(--sm);
 }
 .desktop-menu ul li a{
 color: var(--black);
 text-decoration: none;
 display: inline-block;
+font-size: var(--sm);
 margin-bottom: 20px;
 }
 .desktop-menu ul li:nth-child(1),

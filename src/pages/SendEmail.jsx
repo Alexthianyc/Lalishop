@@ -1,10 +1,10 @@
 import React from 'react';
-import '../styles/password_recovery2.scss';
+import '../styles/SendEmail.scss';
 
 import email from 'icons/email.svg';
 import logo_lalishop from 'logos/logo_lalishop.png';
 
-const Password_recovery2 = () => {
+const SendEmail = () => {
     return ( 
         <div className="login">
         <div className="form-container">
@@ -26,4 +26,4 @@ const Password_recovery2 = () => {
      );
 }
  
-export default Password_recovery2;
+export default SendEmail;

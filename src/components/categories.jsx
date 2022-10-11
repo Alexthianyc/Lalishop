@@ -1,40 +1,45 @@
 //imr
-import React from 'react';
-import '../styles/categorie.scss';
+import React from "react";
+import "../styles/categories.scss";
+import { Link } from "react-router-dom";
 
 //sfc
 const Categories = () => {
-    return ( 
-        <div className="mobile-menu">
-        <ul>
-            <li>
-                <a href="#">CATEGORIAS</a>
-            </li>
-            <li>
-                <a href="/">Ropa</a>
-            </li>
-            <li>
-                <a href="/">Dispositivos electronicos</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="/orders">Mis ordenes</a>
-              </li>
-              <li>
-                <a href="/account">Mi cuenta</a>
-              </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="/" className="email">correo@ues.edu.sv</a>
-            </li>
-            <li>
-                <a href="/" className="sing-out">Cerrar sesion</a>
-            </li>
-        </ul>
+  return (
+    <div className="mobile-menu">
+      <ul>
+        <li>
+          <p>CATEGORIAS</p>
+        </li>
+        <li>
+          <Link to={"/"}>Ropa</Link>
+        </li>
+        <li>
+          <Link to={"/"}>Dispositivos electronicos</Link>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <Link to={"/orders"}>Mis ordenes</Link>
+        </li>
+        <li>
+          <Link to={"/account"}>Mi cuenta</Link>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <Link to={"/"} className="email">
+            correo@ues.edu.sv
+          </Link>
+        </li>
+        <li>
+          <Link to={"/"} className="sing-out">
+            Cerrar sesion
+          </Link>
+        </li>
+      </ul>
     </div>
-     );
-}
- 
+  );
+};
+
 export default Categories;

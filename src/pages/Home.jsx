@@ -1,13 +1,11 @@
 import React from 'react';
-import Navbar from '../components/navbar';
-import Contenido from '../components/content';
+import ProductList  from '../containers/ProductList';
 
 const Home = () => {
 	return (
-		<div>
-			<Navbar />
-			<Contenido />
-		</div>
+		<>
+			<ProductList  />
+		</>
 	);
 }
 

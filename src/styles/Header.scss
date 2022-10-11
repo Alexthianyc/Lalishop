@@ -4,11 +4,22 @@ nav{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    // padding: 0 20px 0 10px;
+    position: fixed;
+    top: 0;
+    background-color: white;
+}
+.lalisName{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: var(--md);
+    cursor: pointer;
 }
 .menu{
     display: none;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 .menu-logo{
     width: 35px;
@@ -16,6 +27,9 @@ nav{
     padding: 5px 5px 0px 10px;
     margin-right: 10px;
 }        
+.navbar-left{
+    display: flex;
+}
 .navbar-left ul{
     margin-left: 15px;
 }
@@ -28,16 +42,13 @@ nav{
     align-items: center;
     height: 50px;
 }
-.navbar-left{
-    display: flex;
-}
 .navbar-right{
     height: auto;
     display: flex;
     cursor: pointer;
 }
 .navbar-right ul li:nth-child(1){
-    margin-right: 20px;
+    padding-right: 20px;
 }
 .navbar-left ul li a,
 .navbar-right ul li a{
@@ -51,6 +62,7 @@ nav{
 .navbar-right ul li a:hover{
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
+    font-size: var(--md);
 }
 .navbar-email{
     color: var(--very-light-pink);
@@ -59,7 +71,7 @@ nav{
 }
 .navbar-shopping-cart{
     position: relative;
-    margin-right: 10px;
+    margin-right: 22px;
 }
 .navbar-shopping-cart img:hover{
     filter: opacity(0.4) drop-shadow(0 0 0 var(--hospital-green)); 
@@ -78,6 +90,9 @@ nav{
     justify-content: center;
     align-items: center;
 }
+.navbar-right ul{
+    margin: 0;
+}
 @media (max-width: 640px) {
     .menu{
         display: block;
@@ -87,5 +102,8 @@ nav{
     }
     .navbar-email{
         display: none;
+    }
+    .navbar-shopping-cart{
+        margin-right: 15px;
     }
 }

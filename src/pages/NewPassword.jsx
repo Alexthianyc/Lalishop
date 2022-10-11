@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/new_password.scss';
+import '../styles/NewPassword.scss';
 
 import logo_lalishop from 'logos/logo_lalishop.png';
 

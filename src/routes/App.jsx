@@ -1,22 +1,27 @@
 // imr
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Layout from '../containers/layout';
 import Home from '../pages/Home';
 import Login from '../pages/login';
-import NewPassword from '../pages/new_password';
-import SendEmail from '../pages/password_recovery2';
-import MyAccount from '../pages/my_account';
-import CreateAccount from '../pages/create_account';
-import Checkout from '../pages/my_order';
-import Orders from '../pages/my_orders';
+import NewPassword from '../pages/NewPassword';
+import SendEmail from '../pages/SendEmail';
+import MyAccount from '../pages/MyAccount';
+import CreateAccount from '../pages/CreateAccount';
+import Checkout from '../containers/myOrder';
+import Orders from '../pages/Orders';
 import NotFound from '../pages/NotFound';
+import AppContext from '../context/AppContext';
+import useInitialState from '../hooks/useInitialState';
+
 import "../styles/global.css";
 
 // sfc
 const App = () => {
+  const initialState = useInitialState();
     return (
+      <AppContext.Provider value={initialState}>
       <BrowserRouter>
         <Layout>
           <Switch>
@@ -32,6 +37,7 @@ const App = () => {
           </Switch>
         </Layout>
       </BrowserRouter>
+      </AppContext.Provider>
     );
 }
 

@@ -1,0 +1,26 @@
+@import 'vars';
+
+.product-info{
+    margin: 24px 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+}
+.product-info p:nth-child(1){
+    font-size: var(--md);
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+.product-info p:nth-child(2){
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+.product-info p:nth-child(3){
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+    text-align: justify;
+}

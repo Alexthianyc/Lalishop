@@ -1,8 +1,12 @@
 @import 'vars';
 
 .mobile-menu{
-    width: 360px;
-    margin: 10px;
+    width: 100%;
+    height: calc(100vh - 50px);
+    padding: 0 15px;
+    position: absolute;
+    top: 50px;
+    background-color: white;
 }
 .mobile-menu a{
     text-decoration: none;
