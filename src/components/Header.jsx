@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
-import MenuComponent from 'components/Menu';
 import AppContext from '../context/AppContext';
+import MenuComponent from 'components/Menu';
 import CategoriesComponent from 'components/Categories';
 import MyOrderContainer from '../containers/myOrder';
 import '../styles/Header.scss';
