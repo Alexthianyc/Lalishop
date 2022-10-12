@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Layout from '../containers/layout';
 import Home from '../pages/Home';
-import Login from '../pages/login';
+import Login from '../pages/Login';
 import NewPassword from '../pages/NewPassword';
 import SendEmail from '../pages/SendEmail';
 import MyAccount from '../pages/MyAccount';
