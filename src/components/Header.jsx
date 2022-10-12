@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
-import MenuComponent from 'components/Menu';
-import CategoriesComponent from 'components/Categories';
+import MenuComponent from 'components/ModalMenu';
+import CategoriesComponent from 'components/ModalCategories';
 import MyOrderContainer from '../containers/myOrder';
 import '../styles/Header.scss';
 const menuIcon = require('icons/icon_menu.svg');
