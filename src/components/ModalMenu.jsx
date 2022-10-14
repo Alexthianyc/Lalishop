@@ -10,13 +10,13 @@ const Menu = () => {
     <div className="desktop-menu">
       <ul>
         <li>
-          <Link to={"./orders"} onClick={changeMenu}>Mis ordenes</Link>
+          <Link to={"/orders"} onClick={changeMenu}>Mis ordenes</Link>
         </li>
         <li>
-          <Link to={"./account"} onClick={changeMenu}>Mi cuenta</Link>
+          <Link to={"/account"} onClick={changeMenu}>Mi cuenta</Link>
         </li>
         <li>
-          <Link to={"./"} onClick={changeMenu}>Sign out</Link>
+          <Link to={"/"} onClick={changeMenu}>Sign out</Link>
         </li>
       </ul>
     </div>

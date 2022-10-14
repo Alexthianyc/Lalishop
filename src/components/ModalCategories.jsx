@@ -6,7 +6,7 @@ import AppContext from "../context/AppContext";
 
 //sfc
 const Categories = () => {
-  const {state,changeMenu,changeCategories,} = useContext(AppContext);
+  const { changeCategories } = useContext(AppContext);
   return (
     <div className="mobile-menu">
       <ul>
@@ -14,28 +14,41 @@ const Categories = () => {
           <p>CATEGORIAS</p>
         </li>
         <li>
-          <Link to={"/"}>Ropa</Link>
+          <Link to={"/"} onClick={changeCategories}>
+            Hombres
+          </Link>
         </li>
         <li>
-          <Link to={"/"}>Dispositivos electronicos</Link>
+          <Link to={"/"} onClick={changeCategories}>
+            Mujeres
+          </Link>
+        </li>
+        <li>
+          <Link to={"/"} onClick={changeCategories}>
+            Contactanos
+          </Link>
         </li>
       </ul>
       <ul>
         <li>
-          <Link to={"/orders"} onClick={changeCategories}>Mis ordenes</Link>
+          <Link to={"/orders"} onClick={changeCategories}>
+            Mis ordenes
+          </Link>
         </li>
         <li>
-          <Link to={"/account"} onClick={changeCategories}>Mi cuenta</Link>
+          <Link to={"/account"} onClick={changeCategories}>
+            Mi cuenta
+          </Link>
         </li>
       </ul>
       <ul>
         <li>
-          <Link to={"/"} className="email">
+          <Link to={"/"} className="email" onClick={changeCategories}>
             correo@ues.edu.sv
           </Link>
         </li>
         <li>
-          <Link to={"/"} className="sing-out">
+          <Link to={"/"} className="sing-out" onClick={changeCategories}>
             Cerrar sesion
           </Link>
         </li>
