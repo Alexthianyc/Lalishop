@@ -11,28 +11,19 @@ const icon_shopping_cart = require('icons/icon_shopping_cart.svg');
 const Navbar = () => {
     const {state,changeMenu,changeCategories,changeMyOrden} = useContext(AppContext);
     const mostrarCategories = () => {
+      state.menu = false;
+      state.myOrden = false;
       changeCategories(); 
-      if(state.myOrden){
-        changeMyOrden();
-      }else if(state.menu){
-        changeMenu();
-      }
     }
     const mostrarMenu = () => {
+      state.myOrden = false;
+      state.categories = false;
       changeMenu();
-      if(state.myOrden){
-        changeMyOrden();
-      }else if(state.categories){
-        changeCategories();
-      }
     }
     const mostrarMyOrder = () => {
+      state.menu = false;
+      state.categories = false;
       changeMyOrden();
-      if(state.categories){
-        changeCategories();
-      }else if(state.menu){
-        changeMenu();
-      }
     }
 
     return (
