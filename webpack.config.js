@@ -1,7 +1,6 @@
 const path = require('path'); //path del proyecto principal
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //traemos el plugin de html
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //traemos el plugin de css
-const loader = require('sass-loader');
 
 module.exports = {
     entry: './src/index.js', // punto de entrada

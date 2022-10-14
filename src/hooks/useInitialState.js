@@ -4,6 +4,7 @@ const initialState = {
     cart: [],
     categories: false,
     menu: false,
+    myOrden: false,
 }
 
 const useInitialState = () => {
@@ -36,12 +37,20 @@ const useInitialState = () => {
         });
     }
 
+    const changeMyOrden = () => {
+        setState({
+            ...state,
+            myOrden: !state.myOrden,
+        });
+    }
+
     return {
         state,
         addToCart,
         removeFromCart,
         changeMenu,
         changeCategories,
+        changeMyOrden,
     }
 }
 

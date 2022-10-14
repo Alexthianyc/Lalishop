@@ -9,24 +9,25 @@ const menuIcon = require('icons/icon_menu.svg');
 const icon_shopping_cart = require('icons/icon_shopping_cart.svg');
 
 const Navbar = () => {
-    const [myOrden, setMyOrden] = useState(false);
-    const {state,changeMenu,changeCategories,} = useContext(AppContext);
+    const {state,changeMenu,changeCategories,changeMyOrden} = useContext(AppContext);
     const mostrarCategories = () => {
       changeCategories(); 
-      setMyOrden(false);
-      if(state.menu){
+      if(state.myOrden){
+        changeMyOrden();
+      }else if(state.menu){
         changeMenu();
       }
     }
     const mostrarMenu = () => {
       changeMenu();
-      setMyOrden(false);
-      if(state.categories){
+      if(state.myOrden){
+        changeMyOrden();
+      }else if(state.categories){
         changeCategories();
       }
     }
     const mostrarMyOrder = () => {
-      setMyOrden(true);
+      changeMyOrden();
       if(state.categories){
         changeCategories();
       }else if(state.menu){
@@ -62,7 +63,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-          {myOrden && <MyOrderContainer />}
+          {state.myOrden && <MyOrderContainer />}
           {state.categories && <CategoriesComponent />}
           {state.menu  && <MenuComponent/>}
       </nav>
