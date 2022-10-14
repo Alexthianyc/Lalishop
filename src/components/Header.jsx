@@ -9,17 +9,12 @@ const menuIcon = require('icons/icon_menu.svg');
 const icon_shopping_cart = require('icons/icon_shopping_cart.svg');
 
 const Navbar = () => {
-    const [menu, setMenu] = useState(false);
-    const handleMenu = () => {setMenu(!menu)}
-    const [categories, setCategories] = useState(false);
-    const handleCategories = () => {setCategories(!categories)}
     const [myOrden, setMyOrden] = useState(false);
-
-    const {state} = useContext(AppContext);
+    const {state,changeMenu,changeCategories,} = useContext(AppContext);
 
     return (
       <nav>
-        <img src={menuIcon} alt="menu" className="menu" onClick={handleCategories}/>
+        <img src={menuIcon} onClick={changeCategories}alt="menu" className="menu"/>
         <div className="navbar-left">
           <Link to={"/"} className='lalisName'>
             lalishop
@@ -38,16 +33,16 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <ul>
-            <li className="navbar-email" onClick={handleMenu}>correo@ues.edu.com</li>
+            <li className="navbar-email" onClick={changeMenu}>correo@ues.edu.com</li>
             <li className="navbar-shopping-cart" onClick={() => setMyOrden(!myOrden)}>
               <img src={icon_shopping_cart} alt="shopping cart" />
               {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
             </li>
           </ul>
         </div>
-          {categories && <CategoriesComponent />}
           {myOrden && <MyOrderContainer />}
-          {menu  && <MenuComponent/>}
+          {state.categories && <CategoriesComponent />}
+          {state.menu  && <MenuComponent/>}
       </nav>
     );
 }

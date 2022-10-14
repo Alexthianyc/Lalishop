@@ -5,7 +5,7 @@ const flechita = require('icons/flechita.svg');
 import '../styles/MyOrder.scss';
 
 const MyOrder = () => {
-	const { state } = useContext(AppContext);
+	const {state} = useContext(AppContext);
 
 	const totalPrice = () => {
 		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;

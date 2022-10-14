@@ -2,6 +2,8 @@ import {useState} from 'react';
 
 const initialState = {
     cart: [],
+    categories: false,
+    menu: false,
 }
 
 const useInitialState = () => {
@@ -21,10 +23,25 @@ const useInitialState = () => {
         });
     }
 
+    const changeMenu = () => {
+        setState({
+            ...state,
+            menu: !state.menu,
+        });
+    }
+    const changeCategories = () => {
+        setState({
+            ...state,
+            categories: !state.categories,
+        });
+    }
+
     return {
         state,
         addToCart,
         removeFromCart,
+        changeMenu,
+        changeCategories,
     }
 }
 

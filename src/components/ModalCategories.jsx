@@ -1,10 +1,12 @@
 //imr
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/categories.scss";
 import { Link } from "react-router-dom";
+import AppContext from "../context/AppContext";
 
 //sfc
 const Categories = () => {
+  const {state,changeMenu,changeCategories,} = useContext(AppContext);
   return (
     <div className="mobile-menu">
       <ul>
@@ -20,10 +22,10 @@ const Categories = () => {
       </ul>
       <ul>
         <li>
-          <Link to={"/orders"}>Mis ordenes</Link>
+          <Link to={"/orders"} onClick={changeCategories}>Mis ordenes</Link>
         </li>
         <li>
-          <Link to={"/account"}>Mi cuenta</Link>
+          <Link to={"/account"} onClick={changeCategories}>Mi cuenta</Link>
         </li>
       </ul>
       <ul>
