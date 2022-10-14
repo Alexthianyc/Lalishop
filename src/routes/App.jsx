@@ -1,6 +1,6 @@
 // imr
 import React from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { HashRouter, Switch, Route} from 'react-router-dom';
 
 import Layout from '../containers/layout';
 import Home from '../pages/Home';
@@ -22,7 +22,7 @@ const App = () => {
   const initialState = useInitialState();
     return (
       <AppContext.Provider value={initialState}>
-      <BrowserRouter>
+      <HashRouter>
         <Layout>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -36,7 +36,7 @@ const App = () => {
             <Route path="*" component={NotFound} />
           </Switch>
         </Layout>
-      </BrowserRouter>
+      </HashRouter>
       </AppContext.Provider>
     );
 }
