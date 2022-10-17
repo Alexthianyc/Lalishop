@@ -43,7 +43,7 @@ const Categories = () => {
       </ul>
       <ul>
         <li>
-          <Link to={"/"} className="email" onClick={changeCategories}>
+          <Link to={"/"} className="email">
             correo@ues.edu.sv
           </Link>
         </li>

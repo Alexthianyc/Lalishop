@@ -8,15 +8,6 @@ nav{
     top: 0;
     background-color: white;
 }
-.lalisName{
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    font-size: var(--md);
-    cursor: pointer;
-}
 .menu{
     display: none;
     margin-left: 15px;
@@ -92,6 +83,37 @@ nav{
 }
 .navbar-right ul{
     margin: 0;
+}
+.lalisName{
+    text-decoration: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: var(--md);
+    cursor: pointer;
+    
+    background-image: linear-gradient(to right, orange, #ec38bc, #7303c0, cyan);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: hue-rotate(0);
+    animation: rotate-hue linear 2100ms infinite;
+}
+@keyframes rotate-hue {
+    to {
+     filter: hue-rotate(1turn);
+    }
+   }
+.lalisName:visited, .lalisName:active, .lalisName:hover, .lalisName:focus, .lalisName:link{
+    color: transparent;    
+}
+.lalisName:link{
+    text-decoration: none;
+    outline: none;
 }
 @media (max-width: 640px) {
     .menu{
