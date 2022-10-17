@@ -9,7 +9,7 @@ const menuIcon = require("icons/icon_menu.svg");
 const icon_shopping_cart = require("icons/icon_shopping_cart.svg");
 
 const Navbar = () => {
-  const { state, changeMenu, changeCategories, changeMyOrden } =
+  const {state, changeMenu, changeCategories, changeMyOrden, closeModal} =
     useContext(AppContext);
   const mostrarCategories = () => {
     state.menu = false;
@@ -25,11 +25,6 @@ const Navbar = () => {
     state.menu = false;
     state.categories = false;
     changeMyOrden();
-  };
-  const closeModal = () => {
-    state.menu = false;
-    state.categories = false;
-    state.myOrden = false;
   };
 
   return (

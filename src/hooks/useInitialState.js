@@ -43,6 +43,14 @@ const useInitialState = () => {
             myOrden: !state.myOrden,
         });
     }
+    const closeModal = () => {
+        setState({
+            ...state,
+            menu: false,
+            categories: false,
+            myOrden: false,
+        });
+      };
 
     return {
         state,
@@ -51,6 +59,7 @@ const useInitialState = () => {
         changeMenu,
         changeCategories,
         changeMyOrden,
+        closeModal
     }
 }
 
