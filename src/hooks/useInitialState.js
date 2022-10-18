@@ -24,25 +24,6 @@ const useInitialState = () => {
         });
     }
 
-    const changeMenu = () => {
-        setState({
-            ...state,
-            menu: !state.menu,
-        });
-    }
-    const changeCategories = () => {
-        setState({
-            ...state,
-            categories: !state.categories,
-        });
-    }
-
-    const changeMyOrden = () => {
-        setState({
-            ...state,
-            myOrden: !state.myOrden,
-        });
-    }
     const closeModal = () => {
         setState({
             ...state,
@@ -51,14 +32,38 @@ const useInitialState = () => {
             myOrden: false,
         });
       };
+      const mostrarCategories = () => {
+        setState({
+            ...state,
+            menu: false,
+            categories: !state.categories,
+            myOrden: false,
+        });
+      };
+      const mostrarMenu = () => {
+        setState({
+            ...state,
+            menu: !state.menu,
+            categories: false,
+            myOrden: false,
+        });
+      };
+      const mostrarMyOrder = () => {
+        setState({
+            ...state,
+            menu: false,
+            categories: false,
+            myOrden: !state.myOrden,
+        });
+      };
 
     return {
         state,
         addToCart,
         removeFromCart,
-        changeMenu,
-        changeCategories,
-        changeMyOrden,
+        mostrarMenu,
+        mostrarCategories,
+        mostrarMyOrder,
         closeModal
     }
 }

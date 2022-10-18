@@ -9,23 +9,8 @@ const menuIcon = require("icons/icon_menu.svg");
 const icon_shopping_cart = require("icons/icon_shopping_cart.svg");
 
 const Navbar = () => {
-  const {state, changeMenu, changeCategories, changeMyOrden, closeModal} =
+  const {state, mostrarMenu, mostrarCategories,mostrarMyOrder, closeModal} =
     useContext(AppContext);
-  const mostrarCategories = () => {
-    state.menu = false;
-    state.myOrden = false;
-    changeCategories();
-  };
-  const mostrarMenu = () => {
-    state.myOrden = false;
-    state.categories = false;
-    changeMenu();
-  };
-  const mostrarMyOrder = () => {
-    state.menu = false;
-    state.categories = false;
-    changeMyOrden();
-  };
 
   return (
     <nav>

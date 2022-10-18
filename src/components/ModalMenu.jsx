@@ -5,7 +5,7 @@ import { useContext } from "react";
 import AppContext from "../context/AppContext";
 
 const Menu = () => {
-  const {state,changeMenu,changeCategories,} = useContext(AppContext);
+  const {changeMenu} = useContext(AppContext);
   return (
     <div className="desktop-menu">
       <ul>
