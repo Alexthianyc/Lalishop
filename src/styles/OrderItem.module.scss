@@ -1,0 +1,36 @@
+@use 'vars';
+
+.OrderItem {
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	gap: 16px;
+	margin-bottom: 10px;
+	align-items: center;
+}
+.OrderItem-close{
+	cursor: pointer;
+}
+.OrderItem-back{
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.OrderItem figure {
+	margin: 0;
+	padding: 5px;
+}
+.imagenes{
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+	object-fit: cover;
+	margin: 0;
+}
+.OrderItem p:nth-child(2) {
+	color: vars.$veryLightPink;
+}
+.OrderItem p:nth-child(3) {
+	font-size: vars.$md;
+	font-weight: bold;
+}

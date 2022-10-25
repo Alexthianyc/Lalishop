@@ -1,0 +1,61 @@
+@use 'vars';
+
+.MyAccount{
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 50px;
+    padding: 10px 20px;
+    min-width: 300px;
+}
+.form-container {
+    display: grid;
+    width: 360px;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+}
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+.form a {
+    color: vars.$hospitalGreen;
+    font-size: vars.$sm;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.secondary-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: vars.$white;
+    border-radius: 8px;
+    border: 1px solid vars.$hospitalGreen;
+    color: vars.$hospitalGreen;
+    cursor: pointer;
+    font-size: vars.$md;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.value{
+    color: vars.$veryLightPink;
+    font-size: vars.$md;
+    margin: 10px 0;
+}
+.label {
+    width: 100%;
+    font-size: vars.$sm;
+    font-weight: bold;
+}
+.title{
+    font-size: vars.$lg;
+    margin: 20px 0;
+    text-align: center;
+}

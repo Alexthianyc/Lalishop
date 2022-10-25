@@ -1,0 +1,26 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    font-size: 10px;
+    min-width: 300px;
+    user-select: none;
+}
+a:link, a:visited, a:active a:hover {
+    text-decoration: none;
+}
+figure {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* html {
+    color-scheme: dark;
+  } 
+  body {
+    color: white;
+    background: black;
+  }*/
+}

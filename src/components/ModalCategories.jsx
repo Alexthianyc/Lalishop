@@ -1,60 +1,59 @@
 //imr
-import React, { useContext } from "react";
-import "../styles/categories.scss";
-import { Link } from "react-router-dom";
-import AppContext from "../context/AppContext";
+import React, { useContext } from 'react';
+import Link from 'next/link';
+import AppContext from '@context/AppContext';
+import styles from '@styles/categories.module.scss';
 
 //sfc
 const Categories = () => {
-  const { changeCategories } = useContext(AppContext);
-  return (
-    <div className="mobile-menu">
-      <ul>
-        <li>
-          <p>CATEGORIAS</p>
-        </li>
-        <li>
-          <Link to={"/"} onClick={changeCategories}>
-            Hombres
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} onClick={changeCategories}>
-            Mujeres
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} onClick={changeCategories}>
-            Contactanos
-          </Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to={"/orders"} onClick={changeCategories}>
-            Mis ordenes
-          </Link>
-        </li>
-        <li>
-          <Link to={"/account"} onClick={changeCategories}>
-            Mi cuenta
-          </Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to={"/"} className="email">
-            correo@ues.edu.sv
-          </Link>
-        </li>
-        <li>
-          <Link to={"/"} className="sing-out" onClick={changeCategories}>
-            Cerrar sesion
-          </Link>
-        </li>
-      </ul>
-    </div>
-  );
+    const { toggleCategories } = useContext(AppContext);
+    return (
+        <div className={styles.mobileMenu}>
+            <div>
+                <ul>
+                    <li>
+                        <Link href={'/my-account'}>
+                            <a onClick={toggleCategories}>Mi cuenta</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href={'/orders'}>
+                            <a onClick={toggleCategories}>Mis ordenes</a>
+                        </Link>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <p>CATEGORIAS</p>
+                    </li>
+                    <li>
+                        <Link href={'/'}>
+                            <a onClick={toggleCategories}>Hombres</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href={'/'}>
+                            <a onClick={toggleCategories}>Mujeres</a>
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <Link href={'/'} itemID={styles.email}>
+                            <a onClick={toggleCategories}>correo@ues.edu.sv</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href={'/'} itemID={styles.singOut}>
+                            <a onClick={toggleCategories}>Cerrar sesion</a>
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    );
 };
 
 export default Categories;

@@ -1,0 +1,69 @@
+@use 'vars';
+ 
+.mobileMenu{
+    width: 360px;
+    height: calc(100vh - 50px);
+    padding: 0 15px;
+    position: fixed;
+    top: 50px;
+    background-color: white;
+	z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mobileMenu div:nth-child(1){
+    overflow-y: auto;
+}
+.mobileMenu ul:nth-child(1) a{
+    text-decoration: none;
+    color: darkslategray;
+    font-weight: bold;
+}
+.mobileMenu ul:nth-child(2) a{
+    text-decoration: none;
+    color: vars.$black;
+}
+.mobileMenu ul:nth-child(2) a:hover{
+    color: vars.$hospitalGreen;
+}
+.mobileMenu ul:nth-child(2) p{
+    text-decoration: none;
+    color: vars.$black;
+    font-weight: bold;
+}
+.mobileMenu ul:nth-child(3) a{
+    text-decoration: none;
+    color: vars.$veryLightPink;
+}
+.mobileMenu ul{
+    margin: 0;
+    padding: 15px 0 0;
+    list-style: none;
+}
+.mobileMenu ul:nth-child(1){
+    border-bottom: 1px solid vars.$veryLightPink;
+}
+.mobileMenu ul:nth-child(3){
+    position: sticky;
+    background-color: white;
+    bottom: 0;
+}
+.mobileMenu ul li{
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+#email{
+    font-size: 12px;
+    font-weight: 350;
+    color: vars.$veryLightPink;
+}
+#singOut{
+    color: vars.$hospitalGreen;
+    font-size: 14px;
+}
+@media screen and (max-width: 640px){
+    .mobileMenu{
+        width: 100%;
+    }
+}

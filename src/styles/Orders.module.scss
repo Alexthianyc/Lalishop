@@ -1,0 +1,25 @@
+@use 'vars';
+
+.Orders {
+	width: 100%;
+	height: calc(100vh - 50px);
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 50px;
+	overflow-y: auto;
+}
+.title {
+	font-size: vars.$lg;
+	margin: 20px 0;
+	text-align: center;
+}
+.Orders-container {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	width: 300px;
+}
+.Orders-content {
+	display: flex;
+	flex-direction: column;
+}

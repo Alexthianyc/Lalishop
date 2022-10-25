@@ -1,43 +1,50 @@
-import React, {useContext} from 'react';
-import AppContext from '../context/AppContext';
-import OrderItem from '../components/OrderItem';
-const flechita = require('icons/flechita.svg');
-import '../styles/MyOrder.scss';
+import React, { useContext } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import AppContext from '@context/AppContext';
+import OrderItem from '@components/OrderItem';
+const flechita = require('@icons/flechita.svg');
+import styles from '@styles/MyOrder.module.scss';
 
 const MyOrder = () => {
-	const {state, changeMyOrden} = useContext(AppContext);
+    const { state, toggleMyOrder } = useContext(AppContext);
 
-	const totalPrice = () => {
-		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
-		const sum = state.cart.reduce(reducer, 0);
-		return sum;
-	}
+    const totalPrice = () => {
+        const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+        const sum = state.cart.reduce(reducer, 0);
+        return sum;
+    };
 
-	return (
-		<aside className="MyOrder">
-			<div className="title-container">
-				<div className='return-container'>
-					<img src={flechita} alt="arrow" onClick={changeMyOrden}/>
-				</div>
-				<p id="title-My-Order">Mi orden</p>
-			</div>
-			<div className="my-order-content">
-				{state.cart.map((product) => {
-					 return <OrderItem product={product} key={`orderItem-${product.id}`}/>;
-				})}
-                
-				<div className="order">
-					<p>
-						<span>Total</span>
-					</p>
-					<p>${totalPrice()}</p>
-				</div>
-				<button className="primary-button">
-					Pagar
-				</button>
-			</div>
-		</aside>
-	);
-}
+    return (
+        <aside className={styles.MyOrder}>
+            <div className={styles['title-container']}>
+                <div className={styles['return-container']}>
+                    <Image 
+                    src={flechita} 
+                    alt="arrow" 
+                    onClick={toggleMyOrder} 
+                    priority={true}
+                    />
+                </div>
+                <p className={styles.titleMyOrder}>Mi orden</p>
+            </div>
+            <div className={styles['my-order-content']}>
+                {state.cart.map((product) => {
+                    return <OrderItem product={product} key={`orderItem-${product.id}`} />;
+                })}
+
+                <div className={styles['order']}>
+                    <p>
+                        <span>Total</span>
+                    </p>
+                    <p>${totalPrice()}</p>
+                </div>
+                <Link  href="/checkout">
+                    <a className={styles['primary-button']} onClick={toggleMyOrder}>Pagar</a>
+                </Link>
+            </div>
+        </aside>
+    );
+};
 
 export default MyOrder;

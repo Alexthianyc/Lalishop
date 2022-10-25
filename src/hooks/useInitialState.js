@@ -1,11 +1,13 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 const initialState = {
     cart: [],
     categories: false,
     menu: false,
     myOrden: false,
-}
+    detalleIsOpen: false,
+    detalle: [],
+};
 
 const useInitialState = () => {
     const [state, setState] = useState(initialState);
@@ -15,57 +17,75 @@ const useInitialState = () => {
             ...state,
             cart: [...state.cart, payload],
         });
-    }
-
+    };
     const removeFromCart = (payload) => {
         setState({
             ...state,
-            cart: state.cart.filter(items => items.id !== payload.id)
+            cart: state.cart.filter((items) => items.id !== payload.id),
         });
-    }
-
+    };
     const closeModal = () => {
         setState({
             ...state,
             menu: false,
             categories: false,
             myOrden: false,
+            detalleIsOpen: false,
         });
-      };
-      const mostrarCategories = () => {
+    };
+    const toggleCategories = () => {
         setState({
             ...state,
             menu: false,
+            myOrden: false,
+            detalleIsOpen: false,
             categories: !state.categories,
-            myOrden: false,
         });
-      };
-      const mostrarMenu = () => {
+    };
+    const toggleMenu = () => {
         setState({
             ...state,
-            menu: !state.menu,
             categories: false,
             myOrden: false,
+            detalleIsOpen: false,
+            menu: !state.menu,
         });
-      };
-      const mostrarMyOrder = () => {
+    };
+    const toggleMyOrder = () => {
         setState({
             ...state,
             menu: false,
             categories: false,
+            detalleIsOpen: false,
             myOrden: !state.myOrden,
         });
-      };
-
+    };
+    const mostrarDetalle = (product) => {
+        setState({
+            ...state,
+            categories: false,
+            myOrden: false,
+            detalleIsOpen: true,
+            detalle: product,
+        });
+    };
+    const cerrarDetalle = () => {
+        setState({
+            ...state,
+            detalleIsOpen: false,
+        });
+    };
     return {
         state,
         addToCart,
         removeFromCart,
-        mostrarMenu,
-        mostrarCategories,
-        mostrarMyOrder,
-        closeModal
-    }
-}
+        toggleMenu,
+        toggleCategories,
+        toggleMyOrder,
+        mostrarDetalle,
+        cerrarDetalle,
+        closeModal,
+    };
+};
 
 export default useInitialState;

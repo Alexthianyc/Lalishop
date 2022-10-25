@@ -1,0 +1,45 @@
+@use 'vars';
+
+.product-info{
+    margin: 24px 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+}
+.product-info p:nth-child(1){
+    font-size: vars.$md;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+.product-info p:nth-child(2){
+    color: vars.$veryLightPink;
+    font-size: vars.$md;
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+.product-info p:nth-child(3){
+    color: vars.$veryLightPink;
+    font-size: vars.$sm;
+    margin-top: 0;
+    margin-bottom: 36px;
+    text-align: justify;
+}
+.addCartBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: vars.$hospitalGreen;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+.addCartBtn div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white!important;
+    font-size: vars.$md;
+    font-weight: bold;
+    margin: 0 10px;
+    text-align: center;
+}
