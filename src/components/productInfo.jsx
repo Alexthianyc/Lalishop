@@ -20,10 +20,10 @@ const ProductInfo = () => {
                 <p>${state.detalle.price}</p>
                 <p>{state.detalle.title}</p>
                 <p>{state.detalle.description}</p>
-                <div className={styles.addCartBtn} onClick={() => addToCart(state.detalle)}>
+                <button className={styles.addCartBtn} onClick={() => addToCart(state.detalle)}>
                     <Image src={add_to_cart} alt="add-to-cart" />
                     <div>Agregar al carrito</div>
-                </div>
+                </button>
             </div>
         </div>
     );

@@ -13,12 +13,16 @@ const Categories = () => {
                 <ul>
                     <li>
                         <Link href={'/my-account'}>
-                            <a onClick={toggleCategories}>Mi cuenta</a>
+                            <button className={styles.button} onClick={toggleCategories}>
+                                Mi cuenta
+                            </button>
                         </Link>
                     </li>
                     <li>
                         <Link href={'/orders'}>
-                            <a onClick={toggleCategories}>Mis ordenes</a>
+                            <button className={styles.button} onClick={toggleCategories}>
+                                Mis ordenes
+                            </button>
                         </Link>
                     </li>
                 </ul>
@@ -28,12 +32,16 @@ const Categories = () => {
                     </li>
                     <li>
                         <Link href={'/'}>
-                            <a onClick={toggleCategories}>Hombres</a>
+                            <button className={styles.button} onClick={toggleCategories}>
+                                Hombres
+                            </button>
                         </Link>
                     </li>
                     <li>
                         <Link href={'/'}>
-                            <a onClick={toggleCategories}>Mujeres</a>
+                            <button className={styles.button} onClick={toggleCategories}>
+                                Mujeres
+                            </button>
                         </Link>
                     </li>
                 </ul>
@@ -42,12 +50,16 @@ const Categories = () => {
                 <ul>
                     <li>
                         <Link href={'/'} itemID={styles.email}>
-                            <a onClick={toggleCategories}>correo@ues.edu.sv</a>
+                            <button className={styles.button} onClick={toggleCategories}>
+                                correo@ues.edu.sv
+                            </button>
                         </Link>
                     </li>
                     <li>
                         <Link href={'/'} itemID={styles.singOut}>
-                            <a onClick={toggleCategories}>Cerrar sesion</a>
+                            <button className={styles.button} onClick={toggleCategories}>
+                                Cerrar sesion
+                            </button>
                         </Link>
                     </li>
                 </ul>

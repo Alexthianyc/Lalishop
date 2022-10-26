@@ -11,9 +11,9 @@ const ProductList = () => {
     return (
         <section className={styles['main-container']}>
             <div className={styles['ProductList']}>
-                {products.map((product) => {
-                    return(<ProductItem key={product.id} product={product}/>)
-                })}
+                {products.map((product) => (
+                    <ProductItem product={product} key={product.id} />
+                ))}
             </div>
         </section>
     );

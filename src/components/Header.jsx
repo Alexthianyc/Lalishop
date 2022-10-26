@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AppContext from '@context/AppContext';
-import MenuComponent from '@components/ModalMenu';
 import CategoriesComponent from '@components/ModalCategories';
 import MyOrderContainer from '@containers/myOrder';
 import ProductDetail from '@containers/ProductDetail';
@@ -27,9 +26,9 @@ const Navbar = () => {
                 </div>
                 <div className={styles['navbar-left']}>
                     <Link href={'/'}>
-                        <a className={styles.lalisName} onClick={closeModal}>
+                        <button className={styles.lalisName} onClick={closeModal}>
                             Lalishop
-                        </a>
+                        </button>
                     </Link>
                     {/* <ul>
                         <li>
@@ -44,18 +43,14 @@ const Navbar = () => {
                     </ul> */}
                 </div>
                 <div className={styles['navbar-right']}>
-                    <ul>
-                        <li className={styles['navbar-email']}></li>
-                        <li className={`${styles['navbar-shopping-cart']}`} onClick={toggleMyOrder}>
-                            <Image src={icon_shopping_cart} alt="shopping cart" priority={true} />
-                            {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
-                        </li>
-                    </ul>
+                    <button className={`${styles['navbar-shopping-cart']}`} onClick={toggleMyOrder}>
+                        <Image src={icon_shopping_cart} alt="shopping cart" priority={true} />
+                        {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+                    </button>
                 </div>
             </nav>
             {state.myOrden && <MyOrderContainer />}
             {state.categories && <CategoriesComponent />}
-            {state.menu && <MenuComponent />}
             {state.detalleIsOpen && <ProductDetail />}
         </>
     );

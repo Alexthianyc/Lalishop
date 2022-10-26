@@ -1,5 +1,9 @@
 @use 'vars';
  
+.button{
+    border: none;
+    background-color: transparent;
+}
 .mobileMenu{
     width: 360px;
     height: calc(100vh - 50px);
@@ -15,16 +19,16 @@
 .mobileMenu div:nth-child(1){
     overflow-y: auto;
 }
-.mobileMenu ul:nth-child(1) a{
+.mobileMenu ul:nth-child(1) button{
     text-decoration: none;
     color: darkslategray;
     font-weight: bold;
 }
-.mobileMenu ul:nth-child(2) a{
+.mobileMenu ul:nth-child(2) button{
     text-decoration: none;
     color: vars.$black;
 }
-.mobileMenu ul:nth-child(2) a:hover{
+.mobileMenu ul:nth-child(2) button:hover{
     color: vars.$hospitalGreen;
 }
 .mobileMenu ul:nth-child(2) p{
@@ -32,7 +36,7 @@
     color: vars.$black;
     font-weight: bold;
 }
-.mobileMenu ul:nth-child(3) a{
+.mobileMenu ul:nth-child(3) button{
     text-decoration: none;
     color: vars.$veryLightPink;
 }

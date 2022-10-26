@@ -30,8 +30,7 @@
 .navbar-left ul {
     margin-left: 15px;
 }
-.navbar-left ul,
-.navbar-right ul {
+.navbar-left ul{
     list-style: none;
     padding: 0;
     margin: 0;
@@ -42,20 +41,18 @@
 .navbar-right {
     height: auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 9px 0;
 }
-.navbar-right ul li:nth-child(1) {
-    padding-right: 20px;
-}
-.navbar-left ul li a,
-.navbar-right ul li a {
+.navbar-left ul li a{
     text-decoration: none;
     color: vars.$veryLightPink;
     border: 1px solid vars.$white;
     padding: 8px;
     border-radius: 8px;
 }
-.navbar-left ul li a:hover,
-.navbar-right ul li a:hover {
+.navbar-left ul li a:hover{
     border: 1px solid vars.$hospitalGreen;
     color: vars.$hospitalGreen;
     font-size: vars.$md;
@@ -66,6 +63,8 @@
     cursor: pointer;
 }
 .navbar-shopping-cart {
+    border: none;
+    background-color: transparent;
     position: relative;
     padding-right: 15px;
     cursor: pointer;
@@ -91,6 +90,7 @@
     margin: 0;
 }
 .lalisName {
+    border: none;
     text-decoration: none;
     outline: none;
     display: flex;
