@@ -10,7 +10,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: ['./src/styles'],
   },
-  distDir: 'out',
+  output: 'standalone',
   
   // compress: true,
   // swcMinify: true,
