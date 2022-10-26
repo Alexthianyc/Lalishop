@@ -11,17 +11,17 @@ const Menu = () => {
             <ul>
                 <li>
                     <Link href={'/orders'}>
-                        <a onClick={toggleMenu}>Mis ordenes</a>
+                        <div onClick={toggleMenu}>Mis ordenes</div>
                     </Link>
                 </li>
                 <li>
                     <Link href={'/my-account'}>
-                    <a onClick={toggleMenu}>Mi cuenta</a>
+                        <div onClick={toggleMenu}>Mi cuenta</div>
                     </Link>
                 </li>
                 <li>
                     <Link href={'/login'}>
-                    <a onClick={toggleMenu}>Sign out</a>
+                        <div onClick={toggleMenu}>Sign out</div>
                     </Link>
                 </li>
             </ul>

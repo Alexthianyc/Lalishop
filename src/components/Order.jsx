@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "next/image";
+import Image from 'next/image';
 const flechita = require('@icons/flechita.svg');
 import styles from '@styles/Order.module.scss';
 

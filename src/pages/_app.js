@@ -3,13 +3,13 @@ import Head from 'next/head';
 import AppContext from '@context/AppContext';
 import Header from '@components/Header';
 import useInitialState from '@hooks/useInitialState';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import '@styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
     const initialState = useInitialState();
     useEffect(() => {
-        require('bootstrap/dist/js/bootstrap.bundle.min.js');
+        import('bootstrap/dist/js/bootstrap');
     }, []);
     return (
         <>

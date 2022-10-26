@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
- 
 import Image from 'next/image';
 import Link from 'next/link';
 import AppContext from '@context/AppContext';
@@ -12,7 +11,7 @@ const icon_shopping_cart = require('@icons/icon_shopping_cart.svg');
 import styles from '@styles/Header.module.scss';
 
 const Navbar = () => {
-    const { state, toggleMenu, toggleCategories, toggleMyOrder, closeModal } = useContext(AppContext);
+    const { state, toggleCategories, toggleMyOrder, closeModal } = useContext(AppContext);
 
     return (
         <>
@@ -27,8 +26,10 @@ const Navbar = () => {
                     />
                 </div>
                 <div className={styles['navbar-left']}>
-                    <Link href={'/'} >
-                        <a onClick={closeModal} className={styles.lalisName}>Lalishop</a>
+                    <Link href={'/'}>
+                        <a className={styles.lalisName} onClick={closeModal}>
+                            Lalishop
+                        </a>
                     </Link>
                     {/* <ul>
                         <li>
@@ -46,11 +47,7 @@ const Navbar = () => {
                     <ul>
                         <li className={styles['navbar-email']}></li>
                         <li className={`${styles['navbar-shopping-cart']}`} onClick={toggleMyOrder}>
-                            <Image 
-                            src={icon_shopping_cart} 
-                            alt="shopping cart" 
-                            priority={true}
-                            />
+                            <Image src={icon_shopping_cart} alt="shopping cart" priority={true} />
                             {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
                         </li>
                     </ul>

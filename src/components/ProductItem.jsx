@@ -6,11 +6,8 @@ import styles from '@styles/ProductItem.module.scss';
 import NotFoundImage from '@img/image-not-found-vector.jpg';
 
 const ProductItem = ({ product }) => {
-    const { addToCart, state, mostrarDetalle } = useContext(AppContext);
+    const { addToCart, mostrarDetalle } = useContext(AppContext);
 
-    const hanleClick = (item) => {
-        addToCart(item);
-    };
     const verificarImagen = (imagen) => {
         if (product.images[0] !== '' || product.images[0] !== 'string') {
             return imagen;
@@ -21,7 +18,7 @@ const ProductItem = ({ product }) => {
 
     return (
         <div className={styles.ProductItem}>
-            <div onClick={() => mostrarDetalle(product)}>
+            <div>
                 <Image
                     src={verificarImagen(product.images[0])}
                     alt={product.title}
@@ -30,6 +27,7 @@ const ProductItem = ({ product }) => {
                     height="100%"
                     layout="responsive"
                     priority={true}
+                    onClick={() => mostrarDetalle(product)}
                 />
             </div>
             <div className={styles['product-info']}>
@@ -37,8 +35,8 @@ const ProductItem = ({ product }) => {
                     <p>${product.price}</p>
                     <p>{product.title}</p>
                 </div>
-                <figure onClick={() => addToCart(product)}>
-                    <Image src={bt_add_to_cart} alt="add-cart" />
+                <figure>
+                    <Image src={bt_add_to_cart} alt="add-cart" onClick={() => addToCart(product)} />
                 </figure>
             </div>
         </div>
