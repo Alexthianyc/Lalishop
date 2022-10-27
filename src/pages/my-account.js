@@ -23,11 +23,10 @@ const MyAccount = () => {
                         <p className={`${styles['label']}`}>Contraseña</p>
                         <p className={`${styles['value']}`}>********</p>
 
-                        <Link
-                            href="/new-password"
-                            className={`${styles['secondary-button']} ${styles['signup-button']}`}
-                        >
-                            Editar
+                        <Link href="/new-password">
+                            <button className={`${styles['secondary-button']} ${styles['signup-button']}`}>
+                                Editar
+                            </button>
                         </Link>
                     </form>
                 </div>

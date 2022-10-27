@@ -5,10 +5,11 @@
     height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
+    align-items: center;
     position: fixed;
     top: 50px;
     padding: 10px 20px;
-    min-width: 300px;
+    min-width: 280px;
 }
 .form-container {
     display: grid;

@@ -56,7 +56,7 @@ const Categories = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/'} itemID={styles.singOut}>
+                        <Link href={'/login'} itemID={styles.singOut}>
                             <button className={styles.button} onClick={toggleCategories}>
                                 Cerrar sesion
                             </button>

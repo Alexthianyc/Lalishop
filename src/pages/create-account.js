@@ -30,8 +30,10 @@ const CreateAccount = () => {
                             className={`${styles['input-password']} ${styles.input}`}
                             value="********"
                         />
-                        <Link href="/" className={`${styles['primary-button']} ${styles['signup-button']}`}>
-                            Crear cuenta
+                        <Link href="/login">
+                            <button className={`${styles['primary-button']} ${styles['signup-button']}`}>
+                                Crear cuenta
+                            </button>
                         </Link>
                     </form>
                 </div>
