@@ -17,14 +17,14 @@ const ProductItem = ({ product }) => {
     };
     const addCartValidation = () => {
         if (state.isUserLogged) {
-        addToCart(state.detalle);
+            addToCart(state.detalle);
         } else {
-        Swal.fire({
-            title: 'Debes iniciar sesión',
-            text: 'Para poder agregar productos al carrito',
-            icon: 'warning',
-            confirmButtonText: 'Ok',
-        });
+            Swal.fire({
+                title: 'Debes iniciar sesión',
+                text: 'Para poder agregar productos al carrito',
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+            });
         }
     }
 
