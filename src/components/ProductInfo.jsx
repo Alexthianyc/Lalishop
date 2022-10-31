@@ -18,7 +18,7 @@ const ProductInfo = () => {
                 confirmButtonText: 'Ok',
             });
         }
-    }
+    };
     return (
         <div className={styles.ProductInfo}>
             <Image
