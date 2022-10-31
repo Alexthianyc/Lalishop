@@ -28,7 +28,7 @@ const SendEmail = () => {
                     </Link>
                     <p className={`${styles['resend']}`}>
                         <span>No recibiste el correo electrónico</span>
-                        <Link href="/send-email"> Reenviar</Link>
+                        <Link href="/login"> Reenviar</Link>
                     </p>
                 </div>
             </div>

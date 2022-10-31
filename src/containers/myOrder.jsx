@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import AppContext from '@context/AppContext';
 import OrderItem from '@components/OrderItem';
 import flechita from '@icons/flechita.svg';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 import styles from '@styles/MyOrder.module.scss';
 
 const MyOrder = () => {
@@ -12,6 +13,19 @@ const MyOrder = () => {
         const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
         const sum = state.cart.reduce(reducer, 0);
         return sum;
+    };
+    const router = useRouter();
+    const check = () => {
+        if (state.cart.length > 0) {
+            router.push('/checkout');
+            toggleMyOrder();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No hay productos en el carrito',
+            });
+        }
     };
     return (
         <aside className={styles.MyOrder}>
@@ -31,11 +45,9 @@ const MyOrder = () => {
                     </p>
                     <p>${totalPrice()}</p>
                 </div>
-                <Link href="/checkout">
-                    <button className={styles['primary-button']} onClick={toggleMyOrder}>
-                        Pagar
-                    </button>
-                </Link>
+                <button className={styles['primary-button']} onClick={check}>
+                    Pagar
+                </button>
             </div>
         </aside>
     );
