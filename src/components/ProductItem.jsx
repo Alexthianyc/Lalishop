@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import AppContext from '@context/AppContext';
 import bt_add_to_cart from '@icons/bt_add_to_cart.svg';
-import styles from '@styles/ProductItem.module.scss';
+import Swal from 'sweetalert2';
 import NotFoundImage from '@img/image-not-found-vector.jpg';
+import styles from '@styles/ProductItem.module.scss';
 
 const ProductItem = ({ product }) => {
-    const { addToCart, mostrarDetalle } = useContext(AppContext);
-
+    const { state, addToCart, mostrarDetalle } = useContext(AppContext);
     const verificarImagen = (imagen) => {
         if (product.images[0] !== '' || product.images[0] !== 'string') {
             return imagen;
@@ -15,6 +15,18 @@ const ProductItem = ({ product }) => {
             return NotFoundImage;
         }
     };
+    const addCartValidation = () => {
+        if (state.isUserLogged) {
+        addToCart(state.detalle);
+        } else {
+        Swal.fire({
+            title: 'Debes iniciar sesión',
+            text: 'Para poder agregar productos al carrito',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+        });
+        }
+    }
 
     return (
         <div className={styles.ProductItem}>
@@ -36,7 +48,7 @@ const ProductItem = ({ product }) => {
                     <p>{product.title}</p>
                 </div>
                 <figure>
-                    <Image src={bt_add_to_cart} alt="add-cart" onClick={() => addToCart(product)} />
+                    <Image src={bt_add_to_cart} alt="add-cart" onClick={addCartValidation} />
                 </figure>
             </div>
         </div>

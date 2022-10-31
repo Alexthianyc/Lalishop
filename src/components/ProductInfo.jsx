@@ -2,10 +2,23 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import AppContext from '@context/AppContext';
 const add_to_cart = require('@icons/bt_add_to_cart.svg');
+import Swal from 'sweetalert2';
 import styles from '@styles/ProductInfo.module.scss';
 
 const ProductInfo = () => {
     const { state, addToCart } = useContext(AppContext);
+    const addCartValidation = () => {
+        if (state.isUserLogged) {
+        addToCart(state.detalle);
+        } else {
+        Swal.fire({
+            title: 'Debes iniciar sesión',
+            text: 'Para poder agregar productos al carrito',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+        });
+        }
+    }
     return (
         <div className={styles.ProductInfo}>
             <Image
@@ -20,7 +33,7 @@ const ProductInfo = () => {
                 <p>${state.detalle.price}</p>
                 <p>{state.detalle.title}</p>
                 <p>{state.detalle.description}</p>
-                <button className={styles.addCartBtn} onClick={() => addToCart(state.detalle)}>
+                <button className={styles.addCartBtn} onClick={addCartValidation}>
                     <Image src={add_to_cart} alt="add-to-cart" />
                     <div>Agregar al carrito</div>
                 </button>
