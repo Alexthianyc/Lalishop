@@ -34,9 +34,7 @@ const Login = () => {
     };
     const login = (data) => {
         signInWithEmailAndPassword(auth, data.email, data.password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
+            .then(() => {
                 state.isUserLogged = true;
                 router.push('/');
             })

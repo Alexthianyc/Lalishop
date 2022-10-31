@@ -15,9 +15,7 @@ const CreateAccount = () => {
     const router = useRouter();
     const createUser = (data) => {
         createUserWithEmailAndPassword(auth, data.email, data.password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
+            .then(() => {
                 Swal.fire('Tu cuenta ha sido creada con éxito');
                 setTimeout(() => {
                     state.isUserLogged = true;
