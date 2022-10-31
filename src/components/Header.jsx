@@ -7,24 +7,11 @@ import MyOrderContainer from '@containers/myOrder';
 import ProductDetail from '@containers/ProductDetail';
 const categoriesIcon = require('@icons/icon_menu.svg');
 const icon_shopping_cart = require('@icons/icon_shopping_cart.svg');
-import { auth } from '../firebase/initFirebase';
-import { onAuthStateChanged } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import styles from '@styles/Header.module.scss';
 
 const Navbar = () => {
     const { state, toggleCategories, toggleMyOrder, closeModal } = useContext(AppContext);
-    if (state.isUserLogged) {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const name = user.displayName;
-                //   console.log(name);
-            } else {
-                // User is signed out
-                // ...
-            }
-        });
-    }
     const validation = () => {
         if (state.isUserLogged) {
             toggleMyOrder();

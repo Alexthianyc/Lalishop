@@ -8,13 +8,13 @@ import styles from '@styles/NewPassword.module.scss';
 
 const NewPassword = () => {
     const { state } = useContext(AppContext);
-    const router = useRouter();
     const form = useRef(null);
+    const router = useRouter();
     useEffect(() => {
         if (!state.isUserLogged) {
             router.push('/login');
         }
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
     const changePassword = (usuario, password) => {
         updatePassword(usuario, password)
             .then(() => {
