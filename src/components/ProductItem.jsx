@@ -26,7 +26,7 @@ const ProductItem = ({ product }) => {
                 confirmButtonText: 'Ok',
             });
         }
-    }
+    };
 
     return (
         <div className={styles.ProductItem}>
