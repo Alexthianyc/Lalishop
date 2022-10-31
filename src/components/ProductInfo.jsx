@@ -10,6 +10,11 @@ const ProductInfo = () => {
     const addCartValidation = () => {
         if (state.isUserLogged) {
             addToCart(state.detalle);
+            Swal.fire({
+                title: 'Producto agregado al carrito',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+            });
         } else {
             Swal.fire({
                 title: 'Debes iniciar sesión',

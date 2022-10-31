@@ -18,6 +18,11 @@ const ProductItem = ({ product }) => {
     const addCartValidation = () => {
         if (state.isUserLogged) {
             addToCart(product);
+            Swal.fire({
+                title: 'Producto agregado al carrito',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+            });
         } else {
             Swal.fire({
                 title: 'Debes iniciar sesión',
