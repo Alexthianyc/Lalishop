@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 const initialState = {
     cart: [],
+    detalle: [],
     categories: false,
     menu: false,
     myOrden: false,
     detalleIsOpen: false,
-    detalle: [],
     isUserLogged: false,
 };
 

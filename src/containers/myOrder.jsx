@@ -27,6 +27,7 @@ const MyOrder = () => {
             });
         }
     };
+    console.log(state.cart);
     return (
         <aside className={styles.MyOrder}>
             <div className={styles['title-container']}>

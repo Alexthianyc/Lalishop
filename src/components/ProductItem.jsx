@@ -9,7 +9,7 @@ import styles from '@styles/ProductItem.module.scss';
 const ProductItem = ({ product }) => {
     const { state, addToCart, mostrarDetalle } = useContext(AppContext);
     const verificarImagen = (imagen) => {
-        if (product.images[0] !== '' || product.images[0] !== 'string') {
+        if (imagen !== '' || imagen !== 'string') {
             return imagen;
         } else {
             return NotFoundImage;
@@ -17,7 +17,7 @@ const ProductItem = ({ product }) => {
     };
     const addCartValidation = () => {
         if (state.isUserLogged) {
-            addToCart(state.detalle);
+            addToCart(product);
         } else {
             Swal.fire({
                 title: 'Debes iniciar sesión',
