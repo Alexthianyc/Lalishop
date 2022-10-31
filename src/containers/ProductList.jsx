@@ -4,7 +4,7 @@ import useGetProducts from '@hooks/useGetProducts';
 import styles from '@styles/ProductList.module.scss';
 
 const ProductList = () => {
-    const API = process.env.NEXT_API;
+    const API = process.env.NEXT_PUBLIC_API;
     const products = useGetProducts(API);
     // console.log(products);
 

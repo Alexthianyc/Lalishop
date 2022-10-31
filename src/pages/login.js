@@ -1,19 +1,63 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import AppContext from '@context/AppContext';
 import Link from 'next/link';
 import Head from 'next/head';
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../firebase/initFirebase';
+import { useRouter } from 'next/router';
 import styles from '@styles/Login.module.scss';
 
 const Login = () => {
+    const { state } = useContext(AppContext);
+    const router = useRouter();
+    if (state.isUserLogged) {
+        router.push('/');
+    }
     const form = useRef(null);
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const formData = new FormData(form.current);
-    //     const data = {
-    //         username: formData.get('email'),
-    //         password: formData.get('password'),
-    //     };
-    //     console.log(data);
-    // };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(form.current);
+        const data = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+        login(data);
+    };
+    const handleReset = (e) => {
+        e.preventDefault();
+        const formData = new FormData(form.current);
+        const data = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+        resetPassword(data.email);
+    };
+    const login = (data) => {
+        signInWithEmailAndPassword(auth, data.email, data.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                state.isUserLogged = true;
+                router.push('/');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
+    };
+    const resetPassword = (email) => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // console.log('Email sent');
+                router.push('/send-email');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
+    };
 
     return (
         <>
@@ -26,25 +70,31 @@ const Login = () => {
                         <label htmlFor="email" className={`${styles['label']}`}>
                             Direccion de correo
                         </label>
-                        <input type="email" id="email" className={`${styles['input-email']} ${styles.input}`} />
+                        <input
+                            name="email"
+                            type="email"
+                            id="email"
+                            className={`${styles['input-email']} ${styles.input}`}
+                        />
                         <label htmlFor="password" className={`${styles['label']}`}>
                             Contraseña
                         </label>
                         <input
+                            name="password"
                             type="password"
                             id="password"
                             placeholder="********"
                             className={`${styles['input-password']} ${styles.input}`}
                         />
-                        <Link
-                            href="/"
-                            // onClick={handleSubmit}
+                        <button
+                            className={`${styles['primary-button']} ${styles['login-main-button']}`}
+                            onClick={handleSubmit}
                         >
-                            <button className={`${styles['primary-button']} ${styles['login-main-button']}`}>
-                                Iniciar sesion
-                            </button>
-                        </Link>
-                        <Link href="/send-email">Olvidé mi contraseña</Link>
+                            Iniciar sesion
+                        </button>
+                        <button onClick={handleReset} className={styles['email-button']}>
+                            Olvidé mi contraseña
+                        </button>
                     </form>
                     <Link href="/create-account">
                         <button className={`${styles['secondary-button']} ${styles['signup-button']}`}>

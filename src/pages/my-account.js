@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '@styles/MyAccount.module.scss';
+import AppContext from '@context/AppContext';
+import { useRouter } from 'next/router';
+import { auth } from '../firebase/initFirebase';
 
 const MyAccount = () => {
+    const { state } = useContext(AppContext);
+    const router = useRouter();
+    useEffect(() => {
+        if (!state.isUserLogged) {
+            router.push('/login');
+        }
+    }, []);
+
     return (
         <>
             <Head>
@@ -15,17 +26,17 @@ const MyAccount = () => {
 
                     <form action="#" className={`${styles['form']}`}>
                         <p className={`${styles['label']}`}>Nombre</p>
-                        <p className={`${styles['value']}`}>Cristian</p>
+                        <p className={`${styles['value']}`}>{state.isUserLogged ? auth.currentUser.displayName : ''}</p>
 
                         <p className={`${styles['label']}`}>Direccion de correo</p>
-                        <p className={`${styles['value']}`}>correo@edu.com.sv</p>
+                        <p className={`${styles['value']}`}>{state.isUserLogged ? auth.currentUser.email : ''}</p>
 
                         <p className={`${styles['label']}`}>Contraseña</p>
-                        <p className={`${styles['value']}`}>********</p>
+                        <p className={`${styles['value']}`}>**********</p>
 
                         <Link href="/new-password">
                             <button className={`${styles['secondary-button']} ${styles['signup-button']}`}>
-                                Editar
+                                Cambiar contraseña
                             </button>
                         </Link>
                     </form>

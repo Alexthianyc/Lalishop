@@ -7,6 +7,7 @@ const initialState = {
     myOrden: false,
     detalleIsOpen: false,
     detalle: [],
+    isUserLogged: false,
 };
 
 const useInitialState = () => {

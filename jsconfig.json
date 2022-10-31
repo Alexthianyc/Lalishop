@@ -12,6 +12,7 @@
             "@hooks/*": ["hooks/*"],
             "@template/*": ["template/*"],
             "@img/*": ["assets/img/*"],
+            "@firebase/*": ["firebase/*"]
         }
     }
 }

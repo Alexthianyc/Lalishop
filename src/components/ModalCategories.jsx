@@ -2,29 +2,38 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import AppContext from '@context/AppContext';
+import { auth } from '../firebase/initFirebase';
 import styles from '@styles/categories.module.scss';
 
 //sfc
 const Categories = () => {
-    const { toggleCategories } = useContext(AppContext);
+    const { state, toggleCategories } = useContext(AppContext);
+    const singOut = () => {
+        auth.signOut();
+        state.isUserLogged = false;
+        toggleCategories();
+    };
+
     return (
         <div className={styles.mobileMenu}>
             <div>
                 <ul>
-                    <li>
-                        <Link href={'/my-account'}>
-                            <button className={styles.button} onClick={toggleCategories}>
-                                Mi cuenta
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
+                    {state.isUserLogged && (
+                        <li>
+                            <Link href={'/my-account'}>
+                                <button className={styles.button} onClick={toggleCategories}>
+                                    Mi cuenta
+                                </button>
+                            </Link>
+                        </li>
+                    )}
+                    {/* <li>
                         <Link href={'/orders'}>
                             <button className={styles.button} onClick={toggleCategories}>
                                 Mis ordenes
                             </button>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
                 <ul>
                     <li>
@@ -48,20 +57,31 @@ const Categories = () => {
             </div>
             <div>
                 <ul>
-                    <li>
-                        <Link href={'/'} itemID={styles.email}>
-                            <button className={styles.button} onClick={toggleCategories}>
-                                correo@ues.edu.sv
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href={'/login'} itemID={styles.singOut}>
-                            <button className={styles.button} onClick={toggleCategories}>
-                                Cerrar sesion
-                            </button>
-                        </Link>
-                    </li>
+                    {state.isUserLogged && (
+                        <>
+                            <li>
+                                <button className={styles.button} onClick={toggleCategories}>
+                                    {auth.currentUser.email}
+                                </button>
+                            </li>
+                            <li>
+                                <Link href={'/'} itemID={styles.singOut}>
+                                    <button className={styles.button} onClick={singOut}>
+                                        Cerrar sesion
+                                    </button>
+                                </Link>
+                            </li>
+                        </>
+                    )}
+                    {!state.isUserLogged && (
+                        <li>
+                            <Link href={'/login'}>
+                                <button className={styles.button} onClick={toggleCategories}>
+                                    Iniciar sesion
+                                </button>
+                            </Link>
+                        </li>
+                    )}
                 </ul>
             </div>
         </div>
