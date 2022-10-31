@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../firebase/initFirebase';
 import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 import styles from '@styles/Login.module.scss';
 
 const Login = () => {
@@ -21,7 +22,11 @@ const Login = () => {
             email: formData.get('email'),
             password: formData.get('password'),
         };
-        login(data);
+        if (data.email == '' || data.password == '') {
+            Swal.fire('Debes ingresar tus credenciales');
+        } else {
+            login(data);
+        }
     };
     const handleReset = (e) => {
         e.preventDefault();
@@ -30,7 +35,11 @@ const Login = () => {
             email: formData.get('email'),
             password: formData.get('password'),
         };
-        resetPassword(data.email);
+        if (data.email == '') {
+            Swal.fire('Debes ingresar tu correo electrónico');
+        } else {
+            resetPassword(data.email);
+        }
     };
     const login = (data) => {
         signInWithEmailAndPassword(auth, data.email, data.password)
@@ -40,8 +49,14 @@ const Login = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                if (errorCode == 'auth/wrong-password') {
+                    Swal.fire('La contraseña es incorrecta');
+                } else if (errorCode == 'auth/user-not-found') {
+                    Swal.fire('El usuario no existe');
+                } else {
+                    Swal.fire('Ha ocurrido un error');
+                    // console.log(errorCode);
+                }
             });
     };
     const resetPassword = (email) => {
@@ -52,8 +67,20 @@ const Login = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode);
+                if (errorCode == 'auth/user-not-found') {
+                    Swal.fire('El usuario no existe');
+                } else if (errorCode == 'auth/invalid-email') {
+                    Swal.fire('El correo electrónico no es válido');
+                } else if (errorCode == 'auth/operation-not-allowed') {
+                    Swal.fire('La operación no está permitida');
+                } else if (errorCode == 'auth/too-many-requests') {
+                    Swal.fire('Demasiados intentos');
+                } else if (errorCode == 'auth/internal-error') {
+                    Swal.fire('Error interno');
+                } else {
+                    Swal.fire('Ha ocurrido un error');
+                }
             });
     };
 
@@ -66,7 +93,7 @@ const Login = () => {
                 <div className={`${styles['form-container']}`}>
                     <form action="/" className={`${styles['form']}`} ref={form}>
                         <label htmlFor="email" className={`${styles['label']}`}>
-                            Direccion de correo
+                            Correo electrónico
                         </label>
                         <input
                             name="email"

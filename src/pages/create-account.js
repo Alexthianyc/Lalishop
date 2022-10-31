@@ -25,8 +25,18 @@ const CreateAccount = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode);
+                if (errorCode == 'auth/email-already-in-use') {
+                    Swal.fire('El correo electrónico ya está en uso');
+                } else if (errorCode == 'auth/invalid-email') {
+                    Swal.fire('El correo electrónico no es válido');
+                } else if (errorCode == 'auth/weak-password') {
+                    Swal.fire('La contraseña debe tener al menos 6 caracteres');
+                } else if (errorCode == 'auth/operation-not-allowed') {
+                    Swal.fire('La operación no está permitida');
+                } else {
+                    Swal.fire('Ha ocurrido un error');
+                }
             });
     };
     const form = useRef(null);
@@ -39,7 +49,11 @@ const CreateAccount = () => {
             password: formData.get('password'),
         };
         // console.log(data);
-        createUser(data);
+        if (data.name == '' || data.email == '' || data.password == '') {
+            Swal.fire('Debes llenar todos los campos');
+        } else {
+            createUser(data);
+        }
     };
 
     return (
@@ -49,7 +63,7 @@ const CreateAccount = () => {
             </Head>
             <div className={styles.login}>
                 <div className={styles['form-container']}>
-                    <h1 className={styles.title}>Mi cuenta</h1>
+                    <h1 className={styles.title}>Nueva cuenta</h1>
                     <form action="#" className={styles.form} ref={form}>
                         <label htmlFor="name" className={styles.label}>
                             Nombre

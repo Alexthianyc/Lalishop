@@ -25,8 +25,14 @@ const NewPassword = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode);
+                if (errorCode == 'auth/weak-password') {
+                    Swal.fire('La contraseña debe tener al menos 6 caracteres');
+                } else if (errorCode == 'auth/requires-recent-login') {
+                    Swal.fire('Debes iniciar sesión nuevamente');
+                } else {
+                    Swal.fire('Ha ocurrido un error');
+                }
             });
     };
     const handlePasswordChange = (event) => {
@@ -37,7 +43,7 @@ const NewPassword = () => {
             passwordC: formData.get('passwordC'),
         };
         // console.log(data);
-        if (data.password === data.passwordC) {
+        if (data.password == data.passwordC) {
             const user = getAuth().currentUser;
             changePassword(user, data.password);
         } else {
