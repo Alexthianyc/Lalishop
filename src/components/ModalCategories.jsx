@@ -3,14 +3,20 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import AppContext from '@context/AppContext';
 import { auth } from '../firebase/initFirebase';
+import { useRouter } from 'next/router';
 import styles from '@styles/categories.module.scss';
 
 //sfc
 const Categories = () => {
     const { state, toggleCategories } = useContext(AppContext);
+    const router = useRouter();
     const singOut = () => {
         auth.signOut();
         state.isUserLogged = false;
+        toggleCategories();
+    };
+    const iniciarSesion = () => {
+        router.push('/login');
         toggleCategories();
     };
 
@@ -47,11 +53,9 @@ const Categories = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/'}>
-                            <button className={styles.button} onClick={toggleCategories}>
-                                Mujeres
-                            </button>
-                        </Link>
+                        <button className={styles.button} onClick={iniciarSesion}>
+                            Mujeres
+                        </button>
                     </li>
                 </ul>
             </div>
