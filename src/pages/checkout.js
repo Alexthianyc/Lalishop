@@ -18,9 +18,9 @@ const Checkout = () => {
             dd: fecha.getDate(),
             mm: fecha.getMonth() + 1,
             yy: fecha.getFullYear().toString().slice(-2),
-            yyyy: fecha.getFullYear()
-        }
-        return formato.replace(/dd|mm|yy|yyy/gi, matched => map[matched])
+            yyyy: fecha.getFullYear(),
+        };
+        return formato.replace(/dd|mm|yy|yyy/gi, (matched) => map[matched]);
     }
     const dateString = formatoFecha(date, 'dd/mm/yyyy');
 
@@ -36,7 +36,10 @@ const Checkout = () => {
                         <div className={styles['order']}>
                             <p>
                                 <span>{dateString}</span>
-                                <span>{state.cart.length} {state.cart.length > 1  ? "Productos pagados":"Producto pagado"}</span>
+                                <span>
+                                    {state.cart.length}{' '}
+                                    {state.cart.length > 1 ? 'Productos pagados' : 'Producto pagado'}
+                                </span>
                             </p>
                             <p>${totalPrice()}</p>
                         </div>
