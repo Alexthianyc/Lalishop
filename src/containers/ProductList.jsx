@@ -1,8 +1,8 @@
 import React from 'react';
 import ProductItem from '@components/ProductItem';
 import useGetProducts from '@hooks/useGetProducts';
-import endPoints from '@services/api/index';
-import useFetch from '@hooks/useFetch';
+// import endPoints from '@services/api/index';
+// import useFetch from '@hooks/useFetch';
 import styles from '@styles/ProductList.module.scss';
 
 const ProductList = () => {

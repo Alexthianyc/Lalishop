@@ -63,7 +63,7 @@ const Categories = () => {
             <div>
                 <ul>
                     {state.isUserLogged && (
-                        <> 
+                        <>
                             <li>
                                 <button className={styles.button} onClick={toggleCategories}>
                                     {auth.currentUser.email}
