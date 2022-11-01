@@ -50,7 +50,7 @@ const Categories = () => {
                         <p>CATEGORIAS</p>
                     </li>
                     {categories.map((category) => (
-                        <li>
+                        <li key={category.id}>
                             <Link href="/">
                                 <button className={styles.button} onClick={toggleCategories}>
                                     {category.nombre_categoria}
