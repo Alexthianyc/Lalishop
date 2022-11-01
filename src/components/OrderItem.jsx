@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import AppContext from '@context/AppContext';
 const close = require('@icons/icon_close.png');
+import NotFoundImage from '@img/image-not-found-vector.jpg';
 import styles from '@styles/OrderItem.module.scss';
 
 const OrderItem = ({ product, bool }) => {
