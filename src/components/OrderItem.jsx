@@ -8,7 +8,7 @@ const OrderItem = ({ product, bool }) => {
     const { removeFromCart } = useContext(AppContext);
     const verificarImagen = (imagen) => {
         if (imagen != '' || imagen != ' ' || imagen != null) {
-            return ("https://s3.amazonaws.com/lalishop.bucket-s3/" + imagen);
+            return 'https://s3.amazonaws.com/lalishop.bucket-s3/' + imagen;
         } else {
             return NotFoundImage;
         }
@@ -27,15 +27,16 @@ const OrderItem = ({ product, bool }) => {
             <p>{product?.nombre_producto}</p>
             <p>${product?.precio_producto}</p>
             {bool && (
-            <Image
-                className={styles['OrderItem-close']}
-                src={close}
-                alt="close"
-                onClick={() => removeFromCart(product)}
-                width={10}
-                height={10}
-                priority={true}
-            />)}
+                <Image
+                    className={styles['OrderItem-close']}
+                    src={close}
+                    alt="close"
+                    onClick={() => removeFromCart(product)}
+                    width={10}
+                    height={10}
+                    priority={true}
+                />
+            )}
         </div>
     );
 };

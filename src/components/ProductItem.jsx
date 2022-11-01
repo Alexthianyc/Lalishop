@@ -10,7 +10,7 @@ const ProductItem = ({ product }) => {
     const { state, addToCart, mostrarDetalle } = useContext(AppContext);
     const verificarImagen = (imagen) => {
         if (imagen != '' || imagen != ' ' || imagen != null) {
-            return ("https://s3.amazonaws.com/lalishop.bucket-s3/" + imagen);
+            return 'https://s3.amazonaws.com/lalishop.bucket-s3/' + imagen;
         } else {
             return NotFoundImage;
         }

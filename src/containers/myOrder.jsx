@@ -12,7 +12,7 @@ const MyOrder = () => {
     const totalPrice = () => {
         const reducer = (accumulator, currentValue) => accumulator + parseFloat(currentValue.precio_producto);
         const sum = state.cart.reduce(reducer, 0);
-        return Math.round((sum + Number.EPSILON) * 100) / 100;;
+        return Math.round((sum + Number.EPSILON) * 100) / 100;
     };
     const router = useRouter();
     const check = () => {
