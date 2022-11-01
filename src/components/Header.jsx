@@ -8,10 +8,13 @@ import ProductDetail from '@containers/ProductDetail';
 const categoriesIcon = require('@icons/icon_menu.svg');
 const icon_shopping_cart = require('@icons/icon_shopping_cart.svg');
 import Swal from 'sweetalert2';
+import endPoints from '@services/api/index';
+import { useRouter } from 'next/router';
 import styles from '@styles/Header.module.scss';
 
 const Navbar = () => {
     const { state, toggleCategories, toggleMyOrder, closeModal } = useContext(AppContext);
+    const router = useRouter();
     const validation = () => {
         if (state.isUserLogged) {
             toggleMyOrder();
@@ -22,6 +25,11 @@ const Navbar = () => {
                 text: 'Para utilizar el carrito debes iniciar sesion!',
             });
         }
+    };
+    const inicio = () => {
+        state.endPointUser = endPoints.products.getProducts();
+        router.push('/');
+        closeModal();
     };
 
     return (
@@ -38,7 +46,7 @@ const Navbar = () => {
                 </div>
                 <div className={styles['navbar-left']}>
                     <Link href={'/'}>
-                        <button className={styles.lalisName} onClick={closeModal}>
+                        <button className={styles.lalisName} onClick={inicio}>
                             Lalishop
                         </button>
                     </Link>

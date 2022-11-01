@@ -7,7 +7,7 @@ const endPoints = {
     },
     categories: {
         getCategoriesList: () => `${API}/categorias`,
-        getCategorie: (filtro) => `${API}//producto/categoria/${filtro}`,
+        getCategorie: (filtro) => `${API}/producto/categoria/${filtro}`,
     },
 };
 

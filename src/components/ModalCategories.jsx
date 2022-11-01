@@ -15,11 +15,18 @@ const Categories = () => {
     const singOut = () => {
         auth.signOut();
         state.isUserLogged = false;
+        state.cart = [];
         toggleCategories();
     };
     const iniciarSesion = () => {
         toggleCategories();
         router.push('/login');
+    };
+    const mostrarCategorias = (endPoint) => {
+        // console.log(endPoint);
+        state.endPointUser = endPoint;
+        router.push('/');
+        toggleCategories();
     };
     const categories = useFetch(endPoints.categories.getCategoriesList());
     // console.log(categories);
@@ -37,22 +44,39 @@ const Categories = () => {
                             </Link>
                         </li>
                     )}
-                    {/* <li>
-                        <Link href={'/orders'}>
+                    <li>
+                        <Link href={'/aboutUs'}>
                             <button className={styles.button} onClick={toggleCategories}>
-                                Mis ordenes
+                                Contactanos
                             </button>
                         </Link>
-                    </li> */}
+                    </li>
                 </ul>
                 <ul>
                     <li>
                         <p>CATEGORIAS</p>
                     </li>
+                    <li>
+                        <Link href="/">
+                            <button
+                                className={styles.button}
+                                onClick={() => {
+                                    mostrarCategorias(endPoints.products.getProducts());
+                                }}
+                            >
+                                Todos los productos
+                            </button>
+                        </Link>
+                    </li>
                     {categories.map((category) => (
                         <li key={category.id}>
                             <Link href="/">
-                                <button className={styles.button} onClick={toggleCategories}>
+                                <button
+                                    className={styles.button}
+                                    onClick={() => {
+                                        mostrarCategorias(endPoints.categories.getCategorie(category.nombre_categoria));
+                                    }}
+                                >
                                     {category.nombre_categoria}
                                 </button>
                             </Link>

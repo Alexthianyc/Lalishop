@@ -10,11 +10,14 @@ const nextConfig = {
             'images.pexels.com',
             'images.unsplash.com',
             'media.discordapp.net',
-            'www.shutterstock.com'
+            'www.shutterstock.com',
+            'cdnmedia.220-volt.ru',
+            'www.100bestbooks.ru',
+            's3.amazonaws.com'
         ],
     },
     env: {
-        NEXT_PUBLIC_API_URL: 'https://www.lalishop.shop/api',
+        NEXT_PUBLIC_API_URL: 'http://www.lalishop.shop/api',
         NEXT_PUBLIC_API: 'https://api.escuelajs.co/api/v1/products',
         NEXT_PUBLIC_FIREBASE_API_KEY: 'AIzaSyBmUh4l-pU0PEP2-2YRqlBKVxhkDtIFVOU',
         NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: 'lalishop-5194f.firebaseapp.com',

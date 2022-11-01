@@ -1,19 +1,27 @@
 @use 'vars';
 
-.my-order{
+.Checkout{
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 50px;
+    display: flex; 
+    justify-content: center;
+    padding-top: 20px;
+}
+.Checkout-content{
+    display: flex;
+    flex-direction: column;
+}
+.Checkout-container{
     display: grid;
-    place-items: center;
+    grid-template-rows: auto 1fr auto;
+    width: 350px;
 }
 .title{
     font-size: vars.$lg;
     margin-bottom: 40px;
-}
-.my-order-container{
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    width: 300px;
+    text-align: center;
 }
 .order{
     display: grid;
@@ -42,10 +50,6 @@
 .order p span:nth-child(2){
     font-size: vars.$sm;
     color: vars.$veryLightPink;
-}
-.my-order-content{
-    display: flex;
-    flex-direction: column;
 }
 .shopping-cart figure img{
     width: 70px;

@@ -4,18 +4,19 @@ import axios from 'axios'; //Con axios vamos a realizar las peticiones
 const useFetch = (endpoint) => {
     const [datos, setDatos] = useState([]);
 
-    async function fetchData() {
-        const response = await axios.get(endpoint);
-        setDatos(response.data);
-    }
-
     useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get(endpoint);
+            const data = response.data;
+            setDatos(data);
+        }
+
         try {
             fetchData();
         } catch (error) {
             console.log(error);
         }
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [endpoint]);
 
     return datos;
 };

@@ -10,9 +10,9 @@ import styles from '@styles/MyOrder.module.scss';
 const MyOrder = () => {
     const { state, toggleMyOrder } = useContext(AppContext);
     const totalPrice = () => {
-        const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+        const reducer = (accumulator, currentValue) => accumulator + parseFloat(currentValue.precio_producto);
         const sum = state.cart.reduce(reducer, 0);
-        return sum;
+        return Math.round((sum + Number.EPSILON) * 100) / 100;;
     };
     const router = useRouter();
     const check = () => {
@@ -38,7 +38,7 @@ const MyOrder = () => {
             </div>
             <div className={styles['my-order-content']}>
                 {state.cart.map((product) => {
-                    return <OrderItem product={product} key={`orderItem-${product.id}`} />;
+                    return <OrderItem product={product} bool={true} key={`orderItem-${product.id}`} />;
                 })}
                 <div className={styles['order']}>
                     <p>

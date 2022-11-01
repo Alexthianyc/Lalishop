@@ -4,21 +4,29 @@ import AppContext from '@context/AppContext';
 const close = require('@icons/icon_close.png');
 import styles from '@styles/OrderItem.module.scss';
 
-const OrderItem = ({ product }) => {
+const OrderItem = ({ product, bool }) => {
     const { removeFromCart } = useContext(AppContext);
+    const verificarImagen = (imagen) => {
+        if (imagen != '' || imagen != ' ' || imagen != null) {
+            return ("https://s3.amazonaws.com/lalishop.bucket-s3/" + imagen);
+        } else {
+            return NotFoundImage;
+        }
+    };
     return (
         <div className={styles.OrderItem}>
             <figure className={styles['OrderItem-back']}>
                 <Image
-                    src={product?.images[0]}
-                    alt={product?.title}
+                    src={verificarImagen(product.imagen_producto)}
+                    alt={product?.nombre_producto}
                     width="70"
                     height="70"
                     className={styles.imagenes}
                 />
             </figure>
-            <p>{product?.title}</p>
-            <p>${product?.price}</p>
+            <p>{product?.nombre_producto}</p>
+            <p>${product?.precio_producto}</p>
+            {bool && (
             <Image
                 className={styles['OrderItem-close']}
                 src={close}
@@ -27,7 +35,7 @@ const OrderItem = ({ product }) => {
                 width={10}
                 height={10}
                 priority={true}
-            />
+            />)}
         </div>
     );
 };

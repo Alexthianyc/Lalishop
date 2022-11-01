@@ -9,8 +9,8 @@ import styles from '@styles/ProductItem.module.scss';
 const ProductItem = ({ product }) => {
     const { state, addToCart, mostrarDetalle } = useContext(AppContext);
     const verificarImagen = (imagen) => {
-        if (imagen !== '' || imagen !== 'string') {
-            return imagen;
+        if (imagen != '' || imagen != ' ' || imagen != null) {
+            return ("https://s3.amazonaws.com/lalishop.bucket-s3/" + imagen);
         } else {
             return NotFoundImage;
         }
@@ -37,7 +37,7 @@ const ProductItem = ({ product }) => {
         <div className={styles.ProductItem}>
             <div>
                 <Image
-                    src={verificarImagen(product.images[0])}
+                    src={verificarImagen(product.imagen_producto)}
                     alt={product.title}
                     className={styles.imagenes}
                     width="100%"
@@ -49,8 +49,8 @@ const ProductItem = ({ product }) => {
             </div>
             <div className={styles['product-info']}>
                 <div>
-                    <p>${product.price}</p>
-                    <p>{product.title}</p>
+                    <p>${product.precio_producto}</p>
+                    <p>{product.nombre_producto}</p>
                 </div>
                 <figure>
                     <Image src={bt_add_to_cart} alt="add-cart" onClick={addCartValidation} />

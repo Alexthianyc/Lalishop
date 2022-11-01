@@ -7,9 +7,9 @@ import styles from '@styles/Checkout.module.scss';
 const Checkout = () => {
     const { state } = useContext(AppContext);
     const totalPrice = () => {
-        const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+        const reducer = (accumulator, currentValue) => accumulator + parseFloat(currentValue.precio_producto);
         const sum = state.cart.reduce(reducer, 0);
-        return sum;
+        return Math.round((sum + Number.EPSILON) * 100) / 100;
     };
     const date = new Date();
     date.getDate();
@@ -20,7 +20,7 @@ const Checkout = () => {
             yy: fecha.getFullYear().toString().slice(-2),
             yyyy: fecha.getFullYear(),
         };
-        return formato.replace(/dd|mm|yy|yyy/gi, (matched) => map[matched]);
+        return formato.replace(/dd|mm|yyyy/gi, (matched) => map[matched]);
     }
     const dateString = formatoFecha(date, 'dd/mm/yyyy');
 
@@ -31,7 +31,7 @@ const Checkout = () => {
             </Head>
             <div className={styles.Checkout}>
                 <div className={styles['Checkout-container']}>
-                    <h1 className={styles['title']}>Mi orden</h1>
+                    <h1 className={styles['title']}>Detalle del pedido</h1>
                     <div className={styles['Checkout-content']}>
                         <div className={styles['order']}>
                             <p>
@@ -43,10 +43,10 @@ const Checkout = () => {
                             </p>
                             <p>${totalPrice()}</p>
                         </div>
+                        {state.cart.map((product) => {
+                            return <OrderItem product={product} bool={false} key={`orderItem-${product.id}`} />;
+                        })}
                     </div>
-                    {state.cart.map((product) => {
-                        return <OrderItem product={product} key={`orderItem-${product.id}`} />;
-                    })}
                 </div>
             </div>
         </>

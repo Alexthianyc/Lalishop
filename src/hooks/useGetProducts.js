@@ -19,8 +19,7 @@ const useGetProducts = (API) => {
                 .catch((err) => console.log(err));
         };
         getPromise();
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
-    // console.log(products);
+    }, [API]);
 
     return products;
 };
