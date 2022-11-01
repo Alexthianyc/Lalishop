@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProductItem from '@components/ProductItem';
 import useGetProducts from '@hooks/useGetProducts';
 import endPoints from '@services/api/index';
@@ -10,7 +10,7 @@ const ProductList = () => {
     const products = useGetProducts(API);
     // console.log(products);
 
-    const productos = useFetch(endPoints.products.getProducts());
+    // const productos = useFetch(endPoints.products.getProducts());
     // console.log(productos);
 
     return (

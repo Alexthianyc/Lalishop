@@ -22,7 +22,7 @@ const Categories = () => {
         router.push('/login');
     };
     const categories = useFetch(endPoints.categories.getCategoriesList());
-    console.log(categories);
+    // console.log(categories);
 
     return (
         <div className={styles.mobileMenu}>
@@ -50,7 +50,7 @@ const Categories = () => {
                         <p>CATEGORIAS</p>
                     </li>
                     {categories.map((category) => (
-                        <li>
+                        <li key={category.id}>
                             <Link href="/">
                                 <button className={styles.button} onClick={toggleCategories}>
                                     {category.nombre_categoria}
@@ -63,7 +63,7 @@ const Categories = () => {
             <div>
                 <ul>
                     {state.isUserLogged && (
-                        <>
+                        <> 
                             <li>
                                 <button className={styles.button} onClick={toggleCategories}>
                                     {auth.currentUser.email}
