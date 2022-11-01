@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import axios from 'axios';
 
 const useGetProducts = (API) => {
     const [products, setProducts] = useState([]);
@@ -20,7 +19,7 @@ const useGetProducts = (API) => {
                 .catch((err) => console.log(err));
         };
         getPromise();
-    }, [API]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
     // console.log(products);
 
     return products;

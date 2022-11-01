@@ -4,6 +4,8 @@ import Link from 'next/link';
 import AppContext from '@context/AppContext';
 import { auth } from '../firebase/initFirebase';
 import { useRouter } from 'next/router';
+import endPoints from '@services/api/index';
+import useFetch from '@hooks/useFetch';
 import styles from '@styles/categories.module.scss';
 
 //sfc
@@ -16,9 +18,11 @@ const Categories = () => {
         toggleCategories();
     };
     const iniciarSesion = () => {
-        router.push('/login');
         toggleCategories();
+        router.push('/login');
     };
+    const categories = useFetch(endPoints.categories.getCategoriesList());
+    console.log(categories);
 
     return (
         <div className={styles.mobileMenu}>
@@ -45,18 +49,15 @@ const Categories = () => {
                     <li>
                         <p>CATEGORIAS</p>
                     </li>
-                    <li>
-                        <Link href={'/'}>
-                            <button className={styles.button} onClick={toggleCategories}>
-                                Hombres
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <button className={styles.button} onClick={iniciarSesion}>
-                            Mujeres
-                        </button>
-                    </li>
+                    {categories.map((category) => (
+                        <li>
+                            <Link href="/">
+                                <button className={styles.button} onClick={toggleCategories}>
+                                    {category.nombre_categoria}
+                                </button>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div>
@@ -79,11 +80,9 @@ const Categories = () => {
                     )}
                     {!state.isUserLogged && (
                         <li>
-                            <Link href={'/login'}>
-                                <button className={styles.button} onClick={toggleCategories}>
-                                    Iniciar sesion
-                                </button>
-                            </Link>
+                            <button className={styles.button} onClick={iniciarSesion}>
+                                Iniciar sesion
+                            </button>
                         </li>
                     )}
                 </ul>
