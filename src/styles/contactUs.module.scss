@@ -1,0 +1,11 @@
+@use 'vars';
+
+.aboutUs{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

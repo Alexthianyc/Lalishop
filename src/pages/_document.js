@@ -5,6 +5,7 @@ export default function Document() {
     return (
         <Html lang="es">
             <Head>
+                <link rel="shortcut icon" href="/favicon/favicon.ico" />
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-1WGW9BBSZ8" strategy="afterInteractive" />
                 <Script id="google-analytics" strategy="afterInteractive">
                     {`

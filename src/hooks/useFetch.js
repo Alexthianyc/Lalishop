@@ -7,8 +7,8 @@ const useFetch = (endpoint) => {
     useEffect(() => {
         async function fetchData() {
             const response = await axios.get(endpoint);
-            const data = response.data;
-            setDatos(data);
+            // const data = response.data;
+            setDatos(response.data);
         }
 
         try {

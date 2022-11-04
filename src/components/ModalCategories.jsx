@@ -45,7 +45,7 @@ const Categories = () => {
                         </li>
                     )}
                     <li>
-                        <Link href={'/aboutUs'}>
+                        <Link href={'/contactUs'}>
                             <button className={styles.button} onClick={toggleCategories}>
                                 Contactanos
                             </button>
