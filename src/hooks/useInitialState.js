@@ -8,7 +8,7 @@ const initialState = {
     myOrden: false,
     detalleIsOpen: false,
     isUserLogged: false,
-    endPointUser: 'http://www.lalishop.shop/api/productos',
+    endPointUser: 'https://lalishop.herokuapp.com/api',
 };
 
 const useInitialState = () => {
