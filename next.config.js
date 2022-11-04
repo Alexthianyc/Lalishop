@@ -3,10 +3,6 @@ const nextConfig = {
     reactStrictMode: true,
     images: {
         domains: [
-            'api.lorem.space',
-            'placeimg.com',
-            'wixmp.com',
-            'romapy',
             'images.pexels.com',
             'images.unsplash.com',
             'media.discordapp.net',
