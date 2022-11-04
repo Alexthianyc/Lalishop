@@ -5,10 +5,10 @@ import styles from '@styles/contactUs.module.scss';
 
 const aboutUs = () => {
     const Router = useRouter();
-    const form = useRef(null);
+    const Form = useRef(null);
     const handleSubmit = (event) => {
         event.preventDefault();
-        const formData = new FormData(form.current);
+        const formData = new FormData(Form.current);
         const data = {
             email: formData.get('email'),
             name: formData.get('name'),
@@ -49,9 +49,8 @@ const aboutUs = () => {
                                 </li>
                             </ul>
                         </div>
-
                         <div className="col-md-6">
-                            <form className="mb-5" id="contactForm" name="contactForm" ref={form}>
+                            <form className="mb-5" id="contactForm" name="contactForm" ref={Form}>
                                 <div className="row">
                                     <div className="col-md-12 form-group">
                                         <label htmlFor="name" className="col-form-label">
@@ -68,7 +67,6 @@ const aboutUs = () => {
                                         <input type="text" className="form-control" name="email" id="email" />
                                     </div>
                                 </div>
-
                                 <div className="row">
                                     <div className="col-md-12 form-group">
                                         <label htmlFor="message" className="col-form-label">
