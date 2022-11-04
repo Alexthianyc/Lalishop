@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import styles from '@styles/contactUs.module.scss';
 
-const aboutUs = () => {
+const AboutUs = () => {
     const Router = useRouter();
     const Form = useRef(null);
     const handleSubmit = (event) => {
@@ -101,4 +101,4 @@ const aboutUs = () => {
     );
 };
 
-export default aboutUs;
+export default AboutUs;
