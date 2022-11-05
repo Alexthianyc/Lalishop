@@ -5,9 +5,11 @@ import OrderItem from '@components/OrderItem';
 import flechita from '@icons/flechita.svg';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
+import { auth } from '../firebase/initFirebase';
 import styles from '@styles/MyOrder.module.scss';
 
 const MyOrder = () => {
+    const user = auth.currentUser;
     const { state, toggleMyOrder } = useContext(AppContext);
     const totalPrice = () => {
         const reducer = (accumulator, currentValue) => accumulator + parseFloat(currentValue.precio_producto);
@@ -17,8 +19,11 @@ const MyOrder = () => {
     const router = useRouter();
     const check = () => {
         if (state.cart.length > 0) {
-            router.push('/checkout');
+            state.pedido = state.cart;
+            state.cart = [];
+            sendOrder();
             toggleMyOrder();
+            router.push('/checkout');
         } else {
             Swal.fire({
                 icon: 'error',
@@ -27,6 +32,31 @@ const MyOrder = () => {
             });
         }
     };
+    const sendOrder = async (event) => {
+        const data = {
+            usuario_id: user.uid,
+            producto_id: state.pedido[0].id,
+            nombre_producto: state.pedido[0].nombre_producto,
+            descripcion_producto: state.pedido[0].descripcion_producto,
+            precio_producto: state.pedido[0].precio_producto,
+            stock_producto: state.pedido[0].stock_producto,
+            imagen_producto: state.pedido[0].imagen_producto,
+        };
+        const JSONdata = JSON.stringify(data);
+        // console.log(JSONdata);
+
+        const endpoint = 'http://www.lalishop.shop/api/pedido';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSONdata,
+        };
+        const response = await fetch(endpoint, options);
+        console.log(response);
+    };
+
     console.log(state.cart);
     return (
         <aside className={styles.MyOrder}>

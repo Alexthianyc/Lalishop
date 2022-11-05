@@ -8,7 +8,7 @@ const Checkout = () => {
     const { state } = useContext(AppContext);
     const totalPrice = () => {
         const reducer = (accumulator, currentValue) => accumulator + parseFloat(currentValue.precio_producto);
-        const sum = state.cart.reduce(reducer, 0);
+        const sum = state.pedido.reduce(reducer, 0);
         return Math.round((sum + Number.EPSILON) * 100) / 100;
     };
     const date = new Date();
@@ -37,13 +37,13 @@ const Checkout = () => {
                             <p>
                                 <span>{dateString}</span>
                                 <span>
-                                    {state.cart.length}{' '}
-                                    {state.cart.length > 1 ? 'Productos pagados' : 'Producto pagado'}
+                                    {state.pedido.length}{' '}
+                                    {state.pedido.length > 1 ? 'Productos pagados' : 'Producto pagado'}
                                 </span>
                             </p>
                             <p>${totalPrice()}</p>
                         </div>
-                        {state.cart.map((product) => {
+                        {state.pedido.map((product) => {
                             return <OrderItem product={product} bool={false} key={`orderItem-${product.id}`} />;
                         })}
                     </div>

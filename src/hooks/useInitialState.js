@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const initialState = {
     cart: [],
+    pedido: [],
     detalle: [],
     categories: false,
     menu: false,

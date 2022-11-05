@@ -34,82 +34,124 @@ const Categories = () => {
     return (
         <div className={styles.mobileMenu}>
             <div>
-                <ul>
-                    {state.isUserLogged && (
-                        <li>
-                            <Link href={'/my-account'}>
-                                <button className={styles.button} onClick={toggleCategories}>
-                                    Mi cuenta
-                                </button>
-                            </Link>
-                        </li>
-                    )}
-                    <li>
-                        <Link href={'/contactUs'}>
-                            <button className={styles.button} onClick={toggleCategories}>
-                                Contactanos
-                            </button>
-                        </Link>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <p>CATEGORIAS</p>
-                    </li>
-                    <li>
-                        <Link href="/">
-                            <button
-                                className={styles.button}
-                                onClick={() => {
-                                    mostrarCategorias(endPoints.products.getProducts());
-                                }}
-                            >
-                                Todos los productos
-                            </button>
-                        </Link>
-                    </li>
-                    {categories.map((category) => (
-                        <li key={category.id}>
-                            <Link href="/">
-                                <button
-                                    className={styles.button}
-                                    onClick={() => {
-                                        mostrarCategorias(endPoints.categories.getCategorie(category.nombre_categoria));
-                                    }}
-                                >
-                                    {category.nombre_categoria}
-                                </button>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    {state.isUserLogged && (
-                        <>
+                <div>
+                    <ul>
+                        {!state.isUserLogged && (
                             <li>
+                                <button className={styles.button} onClick={iniciarSesion}>
+                                    Iniciar sesion
+                                </button>
+                            </li>
+                        )}
+                        <li>
+                            <Link href={'/contactUs'}>
                                 <button className={styles.button} onClick={toggleCategories}>
+                                    Contactanos
+                                </button>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                {state.isUserLogged && (
+                    <div class="accordion mb-3" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseAccount"
+                                    aria-expanded="false"
+                                    aria-controls="collapseOne"
+                                >
                                     {auth.currentUser.email}
                                 </button>
-                            </li>
-                            <li>
-                                <Link href={'/'} itemID={styles.singOut}>
-                                    <button className={styles.button} onClick={singOut}>
-                                        Cerrar sesion
-                                    </button>
-                                </Link>
-                            </li>
-                        </>
-                    )}
-                    {!state.isUserLogged && (
-                        <li>
-                            <button className={styles.button} onClick={iniciarSesion}>
-                                Iniciar sesion
+                            </h2>
+                            <div
+                                id="collapseAccount"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample"
+                            >
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>
+                                            <Link href={'/my-account'}>
+                                                <button className={styles.button} onClick={toggleCategories}>
+                                                    Mi cuenta
+                                                </button>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href={'/'} itemID={styles.singOut}>
+                                                <button className={styles.button} onClick={singOut}>
+                                                    Cerrar sesion
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseCategories"
+                                aria-expanded="false"
+                                aria-controls="collapseOne"
+                            >
+                                CATEGORIAS
                             </button>
-                        </li>
-                    )}
-                </ul>
+                        </h2>
+                        <div
+                            id="collapseCategories"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample"
+                        >
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        <Link href="/">
+                                            <button
+                                                className={styles.button}
+                                                onClick={() => {
+                                                    mostrarCategorias(endPoints.products.getProducts());
+                                                }}
+                                            >
+                                                Todos los productos
+                                            </button>
+                                        </Link>
+                                    </li>
+                                    {categories.map((category) => (
+                                        <li key={category.id}>
+                                            <Link href="/">
+                                                <button
+                                                    className={styles.button}
+                                                    onClick={() => {
+                                                        mostrarCategorias(
+                                                            endPoints.categories.getCategorie(
+                                                                category.nombre_categoria,
+                                                            ),
+                                                        );
+                                                    }}
+                                                >
+                                                    {category.nombre_categoria}
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
