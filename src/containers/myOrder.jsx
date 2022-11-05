@@ -32,7 +32,7 @@ const MyOrder = () => {
             });
         }
     };
-    const sendOrder = async (event) => {
+    const sendOrder = async () => {
         const data = {
             usuario_id: user.uid,
             producto_id: state.pedido[0].id,
