@@ -3,12 +3,12 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import styles from '@styles/contactUs.module.scss';
 
-const AboutUs = () => {
-    const Router = useRouter();
-    const Form = useRef(null);
+const ContactUs = () => {
+    const form = useRef(null);
+    const router = useRouter();
     const handleSubmit = (event) => {
         event.preventDefault();
-        const formData = new FormData(Form.current);
+        const formData = new FormData(form.current);
         const data = {
             email: formData.get('email'),
             name: formData.get('name'),
@@ -18,7 +18,7 @@ const AboutUs = () => {
             Swal.fire('Debes llenar todos los campos');
         } else {
             Swal.fire('Mensaje enviado');
-            Router.push('/');
+            router.push('/');
         }
     };
     return (
@@ -29,6 +29,12 @@ const AboutUs = () => {
                         <div className="col-md-5 mr-auto">
                             <h2>Contactanos</h2>
                             <ul className="list-unstyled pl-md-5 mb-5">
+                                <li className="d-flex text-black mb-2">
+                                    <span className="mr-3">
+                                        <span className="icon-map"></span>
+                                    </span>{' '}
+                                    Lalishop S.A. de C.V.
+                                </li>
                                 <li className="d-flex text-black mb-2">
                                     <span className="mr-3">
                                         <span className="icon-map"></span>
@@ -50,7 +56,7 @@ const AboutUs = () => {
                             </ul>
                         </div>
                         <div className="col-md-6">
-                            <form className="mb-5" id="contactForm" name="contactForm" ref={Form}>
+                            <form className="mb-5" id="contactForm" name="contactForm" ref={form}>
                                 <div className="row">
                                     <div className="col-md-12 form-group">
                                         <label htmlFor="name" className="col-form-label">
@@ -78,7 +84,7 @@ const AboutUs = () => {
                                             id="message"
                                             cols="30"
                                             rows="7"
-                                        ></textarea>
+                                        />
                                     </div>
                                 </div>
                                 <div className="row">
@@ -88,7 +94,6 @@ const AboutUs = () => {
                                             value="Enviar mensaje"
                                             className="btn btn-dark rounded-0 py-2 px-4 mt-2"
                                         />
-                                        <span className="submitting"></span>
                                     </div>
                                 </div>
                             </form>
@@ -101,4 +106,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default ContactUs;

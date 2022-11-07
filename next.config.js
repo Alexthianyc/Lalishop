@@ -2,15 +2,14 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: [
-            'images.pexels.com',
-            'images.unsplash.com',
-            'media.discordapp.net',
-            'www.shutterstock.com',
-            'cdnmedia.220-volt.ru',
-            'www.100bestbooks.ru',
-            's3.amazonaws.com'
-        ],
+        remotePatterns: [
+            {
+              protocol: 'https',
+              hostname: '**',
+            },
+          ],
+        unoptimized: true,
+        dangerouslyAllowSVG: true,
     },
     env: {
         NEXT_PUBLIC_API_LALIS_HEROKU: 'https://lalishop.herokuapp.com/api',

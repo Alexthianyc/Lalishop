@@ -53,11 +53,11 @@ const Categories = () => {
                     </ul>
                 </div>
                 {state.isUserLogged && (
-                    <div class="accordion mb-3" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
+                    <div className="accordion mb-3" id="accordionExample">
+                        <div className="accordion-item">
+                            <h2 className="accordion-header" id="headingOne">
                                 <button
-                                    class="accordion-button"
+                                    className="accordion-button"
                                     type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#collapseAccount"
@@ -69,11 +69,11 @@ const Categories = () => {
                             </h2>
                             <div
                                 id="collapseAccount"
-                                class="accordion-collapse collapse"
+                                className="accordion-collapse collapse"
                                 aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample"
                             >
-                                <div class="accordion-body">
+                                <div className="accordion-body">
                                     <ul>
                                         <li>
                                             <Link href={'/my-account'}>
@@ -95,11 +95,11 @@ const Categories = () => {
                         </div>
                     </div>
                 )}
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
+                <div className="accordion" id="accordionExample">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingOne">
                             <button
-                                class="accordion-button"
+                                className="accordion-button"
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseCategories"
@@ -111,11 +111,11 @@ const Categories = () => {
                         </h2>
                         <div
                             id="collapseCategories"
-                            class="accordion-collapse collapse"
+                            className="accordion-collapse collapse"
                             aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample"
                         >
-                            <div class="accordion-body">
+                            <div className="accordion-body">
                                 <ul>
                                     <li>
                                         <Link href="/">

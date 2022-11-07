@@ -9,7 +9,7 @@ const OrderItem = ({ product, bool }) => {
     const { removeFromCart } = useContext(AppContext);
     const verificarImagen = (imagen) => {
         if (imagen != '' || imagen != ' ' || imagen != null) {
-            return 'https://s3.amazonaws.com/lalishop.bucket-s3/' + imagen;
+            return imagen;
         } else {
             return NotFoundImage;
         }

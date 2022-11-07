@@ -5,6 +5,7 @@ import AppContext from '@context/AppContext';
 import CategoriesComponent from '@components/ModalCategories';
 import MyOrderContainer from '@containers/myOrder';
 import ProductDetail from '@containers/ProductDetail';
+import PaymentGateway from '@components/paymentGateway';
 const categoriesIcon = require('@icons/icon_menu.svg');
 const icon_shopping_cart = require('@icons/icon_shopping_cart.svg');
 import Swal from 'sweetalert2';
@@ -61,6 +62,7 @@ const Navbar = () => {
             {state.myOrden && <MyOrderContainer />}
             {state.categories && <CategoriesComponent />}
             {state.detalleIsOpen && <ProductDetail />}
+            {state.payment && <PaymentGateway />}
         </>
     );
 };

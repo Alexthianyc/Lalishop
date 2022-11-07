@@ -4,11 +4,13 @@ const initialState = {
     cart: [],
     pedido: [],
     detalle: [],
+    idPedido: '',
     categories: false,
     menu: false,
     myOrden: false,
     detalleIsOpen: false,
     isUserLogged: false,
+    payment: false,
     endPointUser: 'https://lalishop.herokuapp.com/api/productos',
 };
 
@@ -34,6 +36,7 @@ const useInitialState = () => {
             categories: false,
             myOrden: false,
             detalleIsOpen: false,
+            payment: false,
         });
     };
     const toggleCategories = () => {
@@ -42,6 +45,7 @@ const useInitialState = () => {
             menu: false,
             myOrden: false,
             detalleIsOpen: false,
+            payment: false,
             categories: !state.categories,
         });
     };
@@ -51,6 +55,7 @@ const useInitialState = () => {
             categories: false,
             myOrden: false,
             detalleIsOpen: false,
+            payment: false,
             menu: !state.menu,
         });
     };
@@ -60,6 +65,7 @@ const useInitialState = () => {
             menu: false,
             categories: false,
             detalleIsOpen: false,
+            payment: false,
             myOrden: !state.myOrden,
         });
     };
@@ -70,6 +76,12 @@ const useInitialState = () => {
             myOrden: false,
             detalleIsOpen: true,
             detalle: product,
+        });
+    };
+    const togglePayment = () => {
+        setState({
+            ...state,
+            payment: !state.payment,
         });
     };
     const cerrarDetalle = () => {
@@ -88,6 +100,7 @@ const useInitialState = () => {
         mostrarDetalle,
         cerrarDetalle,
         closeModal,
+        togglePayment,
     };
 };
 

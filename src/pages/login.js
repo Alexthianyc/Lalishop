@@ -11,10 +11,10 @@ import styles from '@styles/Login.module.scss';
 const Login = () => {
     const { state } = useContext(AppContext);
     const router = useRouter();
+    const form = useRef(null);
     if (state.isUserLogged) {
         router.push('/');
     }
-    const form = useRef(null);
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(form.current);
