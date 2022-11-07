@@ -93,7 +93,7 @@ const PaymentGateway = () => {
                                         id="checkoutForm3"
                                         checked
                                     />
-                                    <label className="form-check-label fw-semibold" for="checkoutForm3">
+                                    <label className="form-check-label fw-semibold" htmlFor="checkoutForm3">
                                         Tarjeta de crédito
                                     </label>
                                 </div>
@@ -104,7 +104,7 @@ const PaymentGateway = () => {
                                         name="flexRadioDefault"
                                         id="checkoutForm5"
                                     />
-                                    <label className="form-check-label fw-semibold" for="checkoutForm5">
+                                    <label className="form-check-label fw-semibold" htmlFor="checkoutForm5">
                                         Contra entrega
                                     </label>
                                 </div>
