@@ -50,6 +50,13 @@ const Categories = () => {
                                 </button>
                             </Link>
                         </li>
+                        <li>
+                            <Link href={'/conditions'}>
+                                <button className={styles.button} onClick={toggleCategories}>
+                                    Uso y condiciones
+                                </button>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 {state.isUserLogged && (
