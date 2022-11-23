@@ -96,6 +96,7 @@ const CreateAccount = () => {
                         <button
                             onClick={handleSubmit}
                             className={`${styles['primary-button']} ${styles['signup-button']}`}
+                            id="signup-button"
                         >
                             Crear cuenta
                         </button>

@@ -114,10 +114,11 @@ const Login = () => {
                         <button
                             className={`${styles['primary-button']} ${styles['login-main-button']}`}
                             onClick={handleSubmit}
+                            id="login-button"
                         >
                             Iniciar sesion
                         </button>
-                        <button onClick={handleReset} className={styles['email-button']}>
+                        <button onClick={handleReset} className={styles['email-button']} id="recovery">
                             Olvidé mi contraseña
                         </button>
                     </form>
