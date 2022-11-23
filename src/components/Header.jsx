@@ -53,7 +53,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className={styles['navbar-right']}>
-                    <button className={`${styles['navbar-shopping-cart']}`} onClick={validation} id='cart'>
+                    <button className={`${styles['navbar-shopping-cart']}`} onClick={validation} id="cart">
                         <Image src={icon_shopping_cart} alt="shopping cart" priority={true} />
                         {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
                     </button>
